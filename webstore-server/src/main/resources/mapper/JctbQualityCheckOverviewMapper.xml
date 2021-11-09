@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.geoway.webstore.dao.JctbQualityCheckOverviewMapper">
+    <resultMap id="BaseResultMap" type="com.geoway.webstore.entity.JctbQualityCheckOverview">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="task_name" jdbcType="VARCHAR" property="taskName"/>
+        <result column="province_code" jdbcType="VARCHAR" property="provinceCode"/>
+        <result column="province_name" jdbcType="VARCHAR" property="provinceName"/>
+        <result column="city_code" jdbcType="VARCHAR" property="cityCode"/>
+        <result column="city_name" jdbcType="VARCHAR" property="cityName"/>
+        <result column="county_code" jdbcType="VARCHAR" property="countyCode"/>
+        <result column="county_name" jdbcType="VARCHAR" property="countyName"/>
+        <result column="status" jdbcType="SMALLINT" property="status"/>
+        <result column="info" jdbcType="VARCHAR" property="info"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+        , task_name, province_code, province_name, city_code, city_name, county_code, county_name,
+    status, info
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from jctb_quality_check_overview
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from jctb_quality_check_overview
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.geoway.webstore.entity.JctbQualityCheckOverview">
+        insert into jctb_quality_check_overview (id, task_name, province_code,
+                                                 province_name, city_code, city_name,
+                                                 county_code, county_name, status,
+                                                 info)
+        values (#{id,jdbcType=BIGINT}, #{taskName,jdbcType=VARCHAR}, #{provinceCode,jdbcType=VARCHAR},
+                #{provinceName,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, #{cityName,jdbcType=VARCHAR},
+                #{countyCode,jdbcType=VARCHAR}, #{countyName,jdbcType=VARCHAR}, #{status,jdbcType=SMALLINT},
+                #{info,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.geoway.webstore.entity.JctbQualityCheckOverview">
+        insert into jctb_quality_check_overview
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="taskName != null">
+                task_name,
+            </if>
+            <if test="provinceCode != null">
+                province_code,
+            </if>
+            <if test="provinceName != null">
+                province_name,
+            </if>
+            <if test="cityCode != null">
+                city_code,
+            </if>
+            <if test="cityName != null">
+                city_name,
+            </if>
+            <if test="countyCode != null">
+                county_code,
+            </if>
+            <if test="countyName != null">
+                county_name,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="info != null">
+                info,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="taskName != null">
+                #{taskName,jdbcType=VARCHAR},
+            </if>
+            <if test="provinceCode != null">
+                #{provinceCode,jdbcType=VARCHAR},
+            </if>
+            <if test="provinceName != null">
+                #{provinceName,jdbcType=VARCHAR},
+            </if>
+            <if test="cityCode != null">
+                #{cityCode,jdbcType=VARCHAR},
+            </if>
+            <if test="cityName != null">
+                #{cityName,jdbcType=VARCHAR},
+            </if>
+            <if test="countyCode != null">
+                #{countyCode,jdbcType=VARCHAR},
+            </if>
+            <if test="countyName != null">
+                #{countyName,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=SMALLINT},
+            </if>
+            <if test="info != null">
+                #{info,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.geoway.webstore.entity.JctbQualityCheckOverview">
+        update jctb_quality_check_overview
+        <set>
+            <if test="taskName != null">
+                task_name = #{taskName,jdbcType=VARCHAR},
+            </if>
+            <if test="provinceCode != null">
+                province_code = #{provinceCode,jdbcType=VARCHAR},
+            </if>
+            <if test="provinceName != null">
+                province_name = #{provinceName,jdbcType=VARCHAR},
+            </if>
+            <if test="cityCode != null">
+                city_code = #{cityCode,jdbcType=VARCHAR},
+            </if>
+            <if test="cityName != null">
+                city_name = #{cityName,jdbcType=VARCHAR},
+            </if>
+            <if test="countyCode != null">
+                county_code = #{countyCode,jdbcType=VARCHAR},
+            </if>
+            <if test="countyName != null">
+                county_name = #{countyName,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=SMALLINT},
+            </if>
+            <if test="info != null">
+                info = #{info,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.geoway.webstore.entity.JctbQualityCheckOverview">
+        update jctb_quality_check_overview
+        set task_name     = #{taskName,jdbcType=VARCHAR},
+            province_code = #{provinceCode,jdbcType=VARCHAR},
+            province_name = #{provinceName,jdbcType=VARCHAR},
+            city_code     = #{cityCode,jdbcType=VARCHAR},
+            city_name     = #{cityName,jdbcType=VARCHAR},
+            county_code   = #{countyCode,jdbcType=VARCHAR},
+            county_name   = #{countyName,jdbcType=VARCHAR},
+            status        = #{status,jdbcType=SMALLINT},
+            info          = #{info,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <insert id="batchInsert" parameterType="com.geoway.webstore.entity.JctbQualityCheckOverview">
+        insert into jctb_quality_check_overview (id, task_name, province_code,
+        province_name, city_code, city_name,
+        county_code, county_name, status,
+        info)
+        values
+        <foreach collection="records" item="record" separator=",">
+            (#{record.id,jdbcType=BIGINT}, #{record.taskName,jdbcType=VARCHAR}, #{record.provinceCode,jdbcType=VARCHAR},
+            #{record.provinceName,jdbcType=VARCHAR}, #{record.cityCode,jdbcType=VARCHAR},
+            #{record.cityName,jdbcType=VARCHAR},
+            #{record.countyCode,jdbcType=VARCHAR}, #{record.countyName,jdbcType=VARCHAR},
+            #{record.status,jdbcType=SMALLINT},
+            #{record.info,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+    <delete id="deleteByTaskName" parameterType="java.lang.String">
+        delete
+        from jctb_quality_check_overview
+        where task_name = #{taskName,jdbcType=VARCHAR}
+    </delete>
+
+    <select id="listByTaskName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from jctb_quality_check_overview
+        where task_name = #{taskName,jdbcType=VARCHAR}
+    </select>
+</mapper>

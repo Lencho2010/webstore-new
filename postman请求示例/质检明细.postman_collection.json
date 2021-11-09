@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "cb2cd068-dfcf-4e33-b558-ceefc120a1eb",
+		"name": "质检明细",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "批量插入",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"659007\",\r\n        \"countyName\": \"双河市\",\r\n        \"cityCode\": \"659000\",\r\n        \"cityName\": \"新疆维吾尔自治区直辖\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"1201\",\r\n        \"ruleName\": \"数据有效性\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:21\",\r\n        \"endTime\": \"2021-08-10 21:17:21\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"659007\",\r\n        \"countyName\": \"双河市\",\r\n        \"cityCode\": \"659000\",\r\n        \"cityName\": \"新疆维吾尔自治区直辖\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"2101\",\r\n        \"ruleName\": \"数学基础\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:21\",\r\n        \"endTime\": \"2021-08-10 21:17:21\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 3,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"659007\",\r\n        \"countyName\": \"双河市\",\r\n        \"cityCode\": \"659000\",\r\n        \"cityName\": \"新疆维吾尔自治区直辖\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"3101\",\r\n        \"ruleName\": \"属性字段名称类型检查\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:21\",\r\n        \"endTime\": \"2021-08-10 21:17:21\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 4,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"659007\",\r\n        \"countyName\": \"双河市\",\r\n        \"cityCode\": \"659000\",\r\n        \"cityName\": \"新疆维吾尔自治区直辖\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"3102\",\r\n        \"ruleName\": \"属性字段的长度位数检查\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:21\",\r\n        \"endTime\": \"2021-08-10 21:17:21\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 5,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"659007\",\r\n        \"countyName\": \"双河市\",\r\n        \"cityCode\": \"659000\",\r\n        \"cityName\": \"新疆维吾尔自治区直辖\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"3201\",\r\n        \"ruleName\": \"代码一致性\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:22\",\r\n        \"endTime\": \"2021-08-10 21:17:22\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 6,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"659007\",\r\n        \"countyName\": \"双河市\",\r\n        \"cityCode\": \"659000\",\r\n        \"cityName\": \"新疆维吾尔自治区直辖\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"3401\",\r\n        \"ruleName\": \"编号唯一性\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:22\",\r\n        \"endTime\": \"2021-08-10 21:17:22\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 7,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"659007\",\r\n        \"countyName\": \"双河市\",\r\n        \"cityCode\": \"659000\",\r\n        \"cityName\": \"新疆维吾尔自治区直辖\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"3501\",\r\n        \"ruleName\": \"字段必填性\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:22\",\r\n        \"endTime\": \"2021-08-10 21:17:22\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 8,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"659007\",\r\n        \"countyName\": \"双河市\",\r\n        \"cityCode\": \"659000\",\r\n        \"cityName\": \"新疆维吾尔自治区直辖\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"4101\",\r\n        \"ruleName\": \"面层内拓扑关系\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:22\",\r\n        \"endTime\": \"2021-08-10 21:17:57\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 9,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"659007\",\r\n        \"countyName\": \"双河市\",\r\n        \"cityCode\": \"659000\",\r\n        \"cityName\": \"新疆维吾尔自治区直辖\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"5101\",\r\n        \"ruleName\": \"数据自重叠检查\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:57\",\r\n        \"endTime\": \"2021-08-10 21:17:57\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 10,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"659007\",\r\n        \"countyName\": \"双河市\",\r\n        \"cityCode\": \"659000\",\r\n        \"cityName\": \"新疆维吾尔自治区直辖\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"5201\",\r\n        \"ruleName\": \"数据间重叠检查\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:57\",\r\n        \"endTime\": \"2021-08-10 21:17:57\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 11,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"653221\",\r\n        \"countyName\": \"和田县\",\r\n        \"cityCode\": \"653200\",\r\n        \"cityName\": \"和田地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"1201\",\r\n        \"ruleName\": \"数据有效性\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:24\",\r\n        \"endTime\": \"2021-08-10 21:17:24\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 12,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"653221\",\r\n        \"countyName\": \"和田县\",\r\n        \"cityCode\": \"653200\",\r\n        \"cityName\": \"和田地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"2101\",\r\n        \"ruleName\": \"数学基础\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:24\",\r\n        \"endTime\": \"2021-08-10 21:17:24\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 13,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"653221\",\r\n        \"countyName\": \"和田县\",\r\n        \"cityCode\": \"653200\",\r\n        \"cityName\": \"和田地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"3101\",\r\n        \"ruleName\": \"属性字段名称类型检查\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:24\",\r\n        \"endTime\": \"2021-08-10 21:17:24\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 14,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"653221\",\r\n        \"countyName\": \"和田县\",\r\n        \"cityCode\": \"653200\",\r\n        \"cityName\": \"和田地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"3102\",\r\n        \"ruleName\": \"属性字段的长度位数检查\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:24\",\r\n        \"endTime\": \"2021-08-10 21:17:24\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 15,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"653221\",\r\n        \"countyName\": \"和田县\",\r\n        \"cityCode\": \"653200\",\r\n        \"cityName\": \"和田地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"3201\",\r\n        \"ruleName\": \"代码一致性\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:24\",\r\n        \"endTime\": \"2021-08-10 21:17:24\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 16,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"653221\",\r\n        \"countyName\": \"和田县\",\r\n        \"cityCode\": \"653200\",\r\n        \"cityName\": \"和田地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"3401\",\r\n        \"ruleName\": \"编号唯一性\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:24\",\r\n        \"endTime\": \"2021-08-10 21:17:24\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 17,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"653221\",\r\n        \"countyName\": \"和田县\",\r\n        \"cityCode\": \"653200\",\r\n        \"cityName\": \"和田地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"3501\",\r\n        \"ruleName\": \"字段必填性\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:24\",\r\n        \"endTime\": \"2021-08-10 21:17:24\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 18,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"653221\",\r\n        \"countyName\": \"和田县\",\r\n        \"cityCode\": \"653200\",\r\n        \"cityName\": \"和田地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"4101\",\r\n        \"ruleName\": \"面层内拓扑关系\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:24\",\r\n        \"endTime\": \"2021-08-10 21:20:21\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 19,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"653221\",\r\n        \"countyName\": \"和田县\",\r\n        \"cityCode\": \"653200\",\r\n        \"cityName\": \"和田地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"5101\",\r\n        \"ruleName\": \"数据自重叠检查\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:20:21\",\r\n        \"endTime\": \"2021-08-10 21:20:21\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 20,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"653221\",\r\n        \"countyName\": \"和田县\",\r\n        \"cityCode\": \"653200\",\r\n        \"cityName\": \"和田地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"5201\",\r\n        \"ruleName\": \"数据间重叠检查\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:20:21\",\r\n        \"endTime\": \"2021-08-10 21:20:22\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 21,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"652923\",\r\n        \"countyName\": \"库车县\",\r\n        \"cityCode\": \"652900\",\r\n        \"cityName\": \"阿克苏地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"1201\",\r\n        \"ruleName\": \"数据有效性\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:24\",\r\n        \"endTime\": \"2021-08-10 21:17:24\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 22,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"652923\",\r\n        \"countyName\": \"库车县\",\r\n        \"cityCode\": \"652900\",\r\n        \"cityName\": \"阿克苏地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"2101\",\r\n        \"ruleName\": \"数学基础\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:24\",\r\n        \"endTime\": \"2021-08-10 21:17:24\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 23,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"652923\",\r\n        \"countyName\": \"库车县\",\r\n        \"cityCode\": \"652900\",\r\n        \"cityName\": \"阿克苏地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"3101\",\r\n        \"ruleName\": \"属性字段名称类型检查\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:24\",\r\n        \"endTime\": \"2021-08-10 21:17:24\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 24,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"652923\",\r\n        \"countyName\": \"库车县\",\r\n        \"cityCode\": \"652900\",\r\n        \"cityName\": \"阿克苏地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"3102\",\r\n        \"ruleName\": \"属性字段的长度位数检查\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:24\",\r\n        \"endTime\": \"2021-08-10 21:17:24\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 25,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"652923\",\r\n        \"countyName\": \"库车县\",\r\n        \"cityCode\": \"652900\",\r\n        \"cityName\": \"阿克苏地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"3201\",\r\n        \"ruleName\": \"代码一致性\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:24\",\r\n        \"endTime\": \"2021-08-10 21:17:24\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 26,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"652923\",\r\n        \"countyName\": \"库车县\",\r\n        \"cityCode\": \"652900\",\r\n        \"cityName\": \"阿克苏地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"3401\",\r\n        \"ruleName\": \"编号唯一性\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:24\",\r\n        \"endTime\": \"2021-08-10 21:17:24\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 27,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"652923\",\r\n        \"countyName\": \"库车县\",\r\n        \"cityCode\": \"652900\",\r\n        \"cityName\": \"阿克苏地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"3501\",\r\n        \"ruleName\": \"字段必填性\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:24\",\r\n        \"endTime\": \"2021-08-10 21:17:24\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 28,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"652923\",\r\n        \"countyName\": \"库车县\",\r\n        \"cityCode\": \"652900\",\r\n        \"cityName\": \"阿克苏地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"4101\",\r\n        \"ruleName\": \"面层内拓扑关系\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:17:24\",\r\n        \"endTime\": \"2021-08-10 21:20:18\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 29,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"652923\",\r\n        \"countyName\": \"库车县\",\r\n        \"cityCode\": \"652900\",\r\n        \"cityName\": \"阿克苏地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"5101\",\r\n        \"ruleName\": \"数据自重叠检查\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:20:18\",\r\n        \"endTime\": \"2021-08-10 21:20:18\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 30,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"652923\",\r\n        \"countyName\": \"库车县\",\r\n        \"cityCode\": \"652900\",\r\n        \"cityName\": \"阿克苏地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"5201\",\r\n        \"ruleName\": \"数据间重叠检查\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:20:18\",\r\n        \"endTime\": \"2021-08-10 21:20:18\",\r\n        \"finalResult\": \"\"\r\n    },\r\n    {\r\n        \"id\": 31,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"653222\",\r\n        \"countyName\": \"墨玉县\",\r\n        \"cityCode\": \"653200\",\r\n        \"cityName\": \"和田地区\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"1201\",\r\n        \"ruleName\": \"数据有效性\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"\",\r\n        \"startTime\": \"2021-08-10 21:22:42\",\r\n        \"endTime\": \"2021-08-10 21:22:42\",\r\n        \"finalResult\": \"\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbQualityCheckDetail/batch",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbQualityCheckDetail",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据任务名称查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbQualityCheckDetail/2021S205190028",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbQualityCheckDetail",
+						"2021S205190028"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据任务名称删除",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbQualityCheckDetail/2021S205190028",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbQualityCheckDetail",
+						"2021S205190028"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据ID更新",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 1,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"659007\",\r\n        \"countyName\": \"双河市\",\r\n        \"cityCode\": \"659000\",\r\n        \"cityName\": \"新疆维吾尔自治区直辖\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"ruleCode\": \"1201\",\r\n        \"ruleName\": \"数据有效性\",\r\n        \"checkResult\": 1,\r\n        \"checkInfo\": \"1111\",\r\n        \"startTime\": \"2021-08-10 21:17:21\",\r\n        \"endTime\": \"2021-08-10 21:17:21\",\r\n        \"finalResult\": \"\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbQualityCheckDetail",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbQualityCheckDetail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据任务名称查询(带索引序号)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbQualityCheckDetail/list/2021S205190028",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbQualityCheckDetail",
+						"list",
+						"2021S205190028"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

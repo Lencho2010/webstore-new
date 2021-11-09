@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configs>
+    <sqlItem>
+        <key>jctbTask</key>
+        <sql>select task_name from table_3</sql>
+    </sqlItem>
+    <sqlItem>
+        <key>edsddbllb_1</key>
+        <sql>select * from table_1</sql>
+    </sqlItem>
+    <sqlItem>
+        <key>yjjbntxztjb</key>
+        <sql>select * from table_2</sql>
+    </sqlItem>
+    <docPath>/landstatConfig/model_new.doc</docPath>
+    <outPath>\\192.168.102.18\Reports\words</outPath>
+</configs>

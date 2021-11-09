@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.geoway.webstore.dao.JctbMarkExceptionDao">
+
+    <resultMap id="BaseResultMap" type="com.geoway.webstore.entity.JctbMarkException">
+        <!--@Table jctb_mark_exception-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="taskName" column="task_name" jdbcType="VARCHAR"/>
+        <result property="provinceCode" column="province_code" jdbcType="VARCHAR"/>
+        <result property="provinceName" column="province_name" jdbcType="VARCHAR"/>
+        <result property="cityCode" column="city_code" jdbcType="VARCHAR"/>
+        <result property="cityName" column="city_name" jdbcType="VARCHAR"/>
+        <result property="countyCode" column="county_code" jdbcType="VARCHAR"/>
+        <result property="countyName" column="county_name" jdbcType="VARCHAR"/>
+        <result property="jcbh" column="jcbh" jdbcType="VARCHAR"/>
+        <result property="errorType" column="error_type" jdbcType="VARCHAR"/>
+        <result property="errorDesc" column="error_desc" jdbcType="VARCHAR"/>
+        <result property="isMark" column="is_mark" jdbcType="INTEGER"/>
+        <result property="markReason" column="mark_reason" jdbcType="VARCHAR"/>
+        <result property="stepCode" column="step_code" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select id,
+               task_name,
+               province_code,
+               province_name,
+               city_code,
+               city_name,
+               county_code,
+               county_name,
+               jcbh,
+               error_type,
+               error_desc,
+               is_mark,
+               mark_reason,
+               step_code
+        from public.jctb_mark_exception
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select id,
+               task_name,
+               province_code,
+               province_name,
+               city_code,
+               city_name,
+               county_code,
+               county_name,
+               jcbh,
+               error_type,
+               error_desc,
+               is_mark,
+               mark_reason,
+               step_code
+        from public.jctb_mark_exception limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+        id, task_name, province_code, province_name, city_code, city_name, county_code, county_name, jcbh, error_type,
+        error_desc, is_mark, mark_reason, step_code
+        from public.jctb_mark_exception
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="taskName != null and taskName != ''">
+                and task_name = #{taskName}
+            </if>
+            <if test="provinceCode != null and provinceCode != ''">
+                and province_code = #{provinceCode}
+            </if>
+            <if test="provinceName != null and provinceName != ''">
+                and province_name = #{provinceName}
+            </if>
+            <if test="cityCode != null and cityCode != ''">
+                and city_code = #{cityCode}
+            </if>
+            <if test="cityName != null and cityName != ''">
+                and city_name = #{cityName}
+            </if>
+            <if test="countyCode != null and countyCode != ''">
+                and county_code = #{countyCode}
+            </if>
+            <if test="countyName != null and countyName != ''">
+                and county_name = #{countyName}
+            </if>
+            <if test="jcbh != null and jcbh != ''">
+                and jcbh = #{jcbh}
+            </if>
+            <if test="errorType != null and errorType != ''">
+                and error_type = #{errorType}
+            </if>
+            <if test="errorDesc != null and errorDesc != ''">
+                and error_desc = #{errorDesc}
+            </if>
+            <if test="isMark != null">
+                and is_mark = #{isMark}
+            </if>
+            <if test="markReason != null and markReason != ''">
+                and mark_reason = #{markReason}
+            </if>
+            <if test="stepCode != null">
+                and step_code = #{stepCode}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into public.jctb_mark_exception(task_name, province_code, province_name, city_code, city_name,
+                                               county_code, county_name, jcbh, error_type, error_desc, is_mark,
+                                               mark_reason, step_code)
+        values (#{taskName}, #{provinceCode}, #{provinceName}, #{cityCode}, #{cityName}, #{countyCode}, #{countyName},
+                #{jcbh}, #{errorType}, #{errorDesc}, #{isMark}, #{markReason}, #{stepCode})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update public.jctb_mark_exception
+        <set>
+            <if test="taskName != null and taskName != ''">
+                task_name = #{taskName},
+            </if>
+            <if test="provinceCode != null and provinceCode != ''">
+                province_code = #{provinceCode},
+            </if>
+            <if test="provinceName != null and provinceName != ''">
+                province_name = #{provinceName},
+            </if>
+            <if test="cityCode != null and cityCode != ''">
+                city_code = #{cityCode},
+            </if>
+            <if test="cityName != null and cityName != ''">
+                city_name = #{cityName},
+            </if>
+            <if test="countyCode != null and countyCode != ''">
+                county_code = #{countyCode},
+            </if>
+            <if test="countyName != null and countyName != ''">
+                county_name = #{countyName},
+            </if>
+            <if test="jcbh != null and jcbh != ''">
+                jcbh = #{jcbh},
+            </if>
+            <if test="errorType != null and errorType != ''">
+                error_type = #{errorType},
+            </if>
+            <if test="errorDesc != null and errorDesc != ''">
+                error_desc = #{errorDesc},
+            </if>
+            <if test="isMark != null">
+                is_mark = #{isMark},
+            </if>
+            <if test="markReason != null and markReason != ''">
+                mark_reason = #{markReason},
+            </if>
+            <if test="stepCode != null">
+                step_code = #{stepCode},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from public.jctb_mark_exception
+        where id = #{id}
+    </delete>
+
+    <sql id="Base_Column_List">
+        id
+        ,task_name, province_code, province_name, city_code, city_name,
+        county_code, county_name, jcbh, error_type, error_desc,
+        is_mark, mark_reason, step_code
+    </sql>
+
+    <insert id="batchInsert" parameterType="com.geoway.webstore.entity.JctbQualityCheckFail">
+        insert into jctb_mark_exception (id,task_name, province_code, province_name, city_code, city_name,
+        county_code, county_name, jcbh, error_type, error_desc,
+        is_mark, mark_reason, step_code)
+        values
+        <foreach collection="records" item="record" separator=",">
+            (#{record.id}, #{record.taskName}, #{record.provinceCode}, #{record.provinceName}, #{record.cityCode}, #{record.cityName}, #{record.countyCode}, #{record.countyName},
+            #{record.jcbh}, #{record.errorType}, #{record.errorDesc}, #{record.isMark}, #{record.markReason}, #{record.stepCode})
+        </foreach>
+    </insert>
+
+    <delete id="deleteByTaskName" parameterType="java.lang.String">
+        delete
+        from jctb_mark_exception
+        where task_name = #{taskName,jdbcType=VARCHAR}
+    </delete>
+
+    <select id="listByTaskName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from jctb_mark_exception
+        where task_name = #{taskName,jdbcType=VARCHAR}
+    </select>
+
+</mapper>

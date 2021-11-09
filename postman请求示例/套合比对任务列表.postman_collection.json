@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "52fe452c-fa86-4aa7-b016-df0b01f0f5e9",
+		"name": "套合比对任务列表",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "插入任务",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"taskName\": \"2021S205190028\",\r\n    \"status\": 1,\r\n    \"progress\": 100,\r\n    \"startTime\": \"2021-09-02 15:16:38\",\r\n    \"endTime\": \"2021-09-10 15:16:43\",\r\n    \"creator\": \"admin\",\r\n    \"tbCount\": 900\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTask",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTask"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "列表查询(建议前端使用)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTask/list/1/5?taskName=20004&status=1,2",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTask",
+						"list",
+						"1",
+						"5"
+					],
+					"query": [
+						{
+							"key": "taskName",
+							"value": "20004",
+							"description": "非必须"
+						},
+						{
+							"key": "status",
+							"value": "1,2",
+							"description": "非必须"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "按照任务名称查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTask/2021S204120004",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTask",
+						"2021S204120004"
+					],
+					"query": [
+						{
+							"key": "taskName",
+							"value": "2021S204120004",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "按照任务名称删除",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTask/2021S204120004",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTask",
+						"2021S204120004"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "按照状态查询(任务名称排序)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTask/listByStatus?status=1,2",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTask",
+						"listByStatus"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "1,2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "更新状态",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"taskName\": \"2021S204120002\",\r\n    \"status\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTask/updateStatus",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTask",
+						"updateStatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "更新进度",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"taskName\": \"2021S204120002\",\r\n    \"progress\": 50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTask/updateProgress",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTask",
+						"updateProgress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "更新状态和进度",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"taskName\": \"2021S204120002\",\r\n    \"progress\": 60,\r\n    \"status\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTask/updateProgressAndStatus",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTask",
+						"updateProgressAndStatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "整体更新",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"taskName\": \"2021S204120004\",\r\n    \"status\": 2,\r\n    \"progress\": 80,\r\n    \"startTime\": \"2021-09-02 15:16:38\",\r\n    \"endTime\": \"2021-09-10 15:16:43\",\r\n    \"creator\": \"admin\",\r\n    \"tbCount\": 900\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTask",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTask"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

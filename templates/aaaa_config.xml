@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configs>
+    <sqlItem>
+        <key>jctbTask</key>
+        <sql>select task_name,creator from jctb_task where task_name='${taskName}'</sql>
+    </sqlItem>
+    <sqlItem>
+        <key>jctbTaskDetail</key>
+        <sql>select task_name,step_info from jctb_task_detail where task_name='${taskName}' limit 1</sql>
+    </sqlItem>
+    <sqlItem>
+        <key>reportTask</key>
+        <sql>select name,desc_str from report_task limit 1 </sql>
+    </sqlItem>
+    <docPath>templates/aaaa.xml</docPath>
+    <!--<outPath>\\192.168.102.18\Reports\words</outPath>-->
+    <outPath>D://test//report</outPath>
+</configs>

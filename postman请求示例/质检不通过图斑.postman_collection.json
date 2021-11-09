@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "9a95390f-4dc3-466a-8115-2f4442c2c89f",
+		"name": "质检不通过图斑",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "批量插入",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"360603\",\r\n        \"countyName\": \"余江区\",\r\n        \"cityCode\": \"360600\",\r\n        \"cityName\": \"鹰潭市\",\r\n        \"provinceCode\": \"360000\",\r\n        \"provinceName\": \"江西省\",\r\n        \"ruleCode\": \"4101\",\r\n        \"ruleName\": \"面层内拓扑关系\",\r\n        \"tbbh\": \"360603202105020628752\",\r\n        \"finalResult\": \"self intersections\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"140902\",\r\n        \"countyName\": \"忻府区\",\r\n        \"cityCode\": \"140900\",\r\n        \"cityName\": \"忻州市\",\r\n        \"provinceCode\": \"140000\",\r\n        \"provinceName\": \"山西省\",\r\n        \"ruleCode\": \"4101\",\r\n        \"ruleName\": \"面层内拓扑关系\",\r\n        \"tbbh\": \"1409022021061907145506\",\r\n        \"finalResult\": \"self intersections\"\r\n    },\r\n    {\r\n        \"id\": 3,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"152223\",\r\n        \"countyName\": \"扎赉特旗\",\r\n        \"cityCode\": \"152200\",\r\n        \"cityName\": \"兴安盟\",\r\n        \"provinceCode\": \"150000\",\r\n        \"provinceName\": \"内蒙古自治区\",\r\n        \"ruleCode\": \"4101\",\r\n        \"ruleName\": \"面层内拓扑关系\",\r\n        \"tbbh\": \"15222320210316062320982\",\r\n        \"finalResult\": \"self intersections\"\r\n    },\r\n    {\r\n        \"id\": 4,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"371083\",\r\n        \"countyName\": \"乳山市\",\r\n        \"cityCode\": \"371000\",\r\n        \"cityName\": \"威海市\",\r\n        \"provinceCode\": \"370000\",\r\n        \"provinceName\": \"山东省\",\r\n        \"ruleCode\": \"4101\",\r\n        \"ruleName\": \"面层内拓扑关系\",\r\n        \"tbbh\": \"3710832021062007212439\",\r\n        \"finalResult\": \"self intersections\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbQualityCheckFail/batch",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbQualityCheckFail",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据任务名称查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbQualityCheckFail/2021S205190028",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbQualityCheckFail",
+						"2021S205190028"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据任务名称删除",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbQualityCheckFail/2021S205190028",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbQualityCheckFail",
+						"2021S205190028"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据ID更新",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"taskName\": \"2021S205190028\",\r\n    \"provinceCode\": \"360000\",\r\n    \"provinceName\": \"江西省1\",\r\n    \"cityCode\": \"360600\",\r\n    \"cityName\": \"鹰潭市\",\r\n    \"countyCode\": \"360603\",\r\n    \"countyName\": \"余江区\",\r\n    \"ruleCode\": \"4101\",\r\n    \"ruleName\": \"面层内拓扑关系\",\r\n    \"tbbh\": \"360603202105020628752\",\r\n    \"finalResult\": \"self intersections\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbQualityCheckFail",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbQualityCheckFail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据任务名称查询(带索引序号)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbQualityCheckFail/list/2021S205190028",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbQualityCheckFail",
+						"list",
+						"2021S205190028"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

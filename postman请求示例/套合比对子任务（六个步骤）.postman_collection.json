@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "5e76bcc8-075f-402e-a5a6-6cb0f6995087",
+		"name": "套合比对子任务（六个步骤）",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "根据任务名称查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTaskSub/2021S205190028",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTaskSub",
+						"2021S205190028"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据任务名称查询（返回结果带详情）",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTaskSub/list/2021S205190028",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTaskSub",
+						"list",
+						"2021S205190028"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "单条插入子任务",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1006,\r\n    \"taskName\": \"2021S205190028\",\r\n    \"status\": 1,\r\n    \"progress\": 55,\r\n    \"startTime\": \"2021-08-31T09:33:19.000+0000\",\r\n    \"endTime\": \"2021-09-02T09:33:23.000+0000\",\r\n    \"stepCode\": 1006\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTaskSub",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTaskSub"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "批量插入",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 10001,\r\n        \"taskName\": \"2021S205190027\",\r\n        \"status\": 1,\r\n        \"progress\": 55,\r\n        \"startTime\": \"2021-08-31 17:33:19\",\r\n        \"endTime\": \"2021-09-02 17:33:23\",\r\n        \"stepCode\": 1001,\r\n        \"stepName\": \"接收解压\"\r\n    },\r\n    {\r\n        \"id\": 10002,\r\n        \"taskName\": \"2021S205190027\",\r\n        \"status\": 1,\r\n        \"progress\": 55,\r\n        \"startTime\": \"2021-08-31 17:33:19\",\r\n        \"endTime\": \"2021-09-02 17:33:23\",\r\n        \"stepCode\": 1002,\r\n        \"stepName\": \"质量检查\"\r\n    },\r\n    {\r\n        \"id\": 10003,\r\n        \"taskName\": \"2021S205190027\",\r\n        \"status\": 1,\r\n        \"progress\": 55,\r\n        \"startTime\": \"2021-08-31 17:33:19\",\r\n        \"endTime\": \"2021-09-02 17:33:23\",\r\n        \"stepCode\": 1003,\r\n        \"stepName\": \"套合比对\"\r\n    },\r\n    {\r\n        \"id\": 10004,\r\n        \"taskName\": \"2021S205190027\",\r\n        \"status\": 1,\r\n        \"progress\": 55,\r\n        \"startTime\": \"2021-08-31 17:33:19\",\r\n        \"endTime\": \"2021-09-02 17:33:23\",\r\n        \"stepCode\": 1004,\r\n        \"stepName\": \"成果检查\"\r\n    },\r\n    {\r\n        \"id\": 10005,\r\n        \"taskName\": \"2021S205190027\",\r\n        \"status\": 1,\r\n        \"progress\": 55,\r\n        \"startTime\": \"2021-08-31 17:33:19\",\r\n        \"endTime\": \"2021-09-02 17:33:23\",\r\n        \"stepCode\": 1005,\r\n        \"stepName\": \"成果输出\"\r\n    },\r\n    {\r\n        \"id\": 10006,\r\n        \"taskName\": \"2021S205190027\",\r\n        \"status\": 1,\r\n        \"progress\": 55,\r\n        \"startTime\": \"2021-08-31 17:33:19\",\r\n        \"endTime\": \"2021-09-02 17:33:23\",\r\n        \"stepCode\": 1006,\r\n        \"stepName\": \"数据入库\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTaskSub/batch",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTaskSub",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据任务名称删除",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTaskSub/2021S205190027",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTaskSub",
+						"2021S205190027"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "更新",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1001,\r\n    \"taskName\": \"2021S205190028\",\r\n    \"status\": 1,\r\n    \"progress\": 65,\r\n    \"startTime\": \"2021-08-31 17:33:19\",\r\n    \"endTime\": \"2021-09-02 17:33:23\",\r\n    \"stepCode\": 1001,\r\n    \"stepName\": \"接收解压\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTaskSub",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTaskSub"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

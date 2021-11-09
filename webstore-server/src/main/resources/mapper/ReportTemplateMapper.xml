@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.geoway.webstore.dao.ReportTemplateDao">
+
+    <resultMap id="BaseResultMap" type="com.geoway.webstore.entity.ReportTemplate">
+        <!--@Table report_template-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="statisticType" column="statistic_type" jdbcType="VARCHAR"/>
+        <result property="code" column="code" jdbcType="VARCHAR"/>
+        <result property="sort" column="sort" jdbcType="INTEGER"/>
+        <result property="url" column="url" jdbcType="VARBINARY"/>
+        <result property="docType" column="doc_type" jdbcType="VARBINARY"/>
+        <result property="group" column="group_str" jdbcType="VARBINARY"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, name, statistic_type, code, sort, url, doc_type, group_str
+    </sql>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from public.report_template
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from public.report_template
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from public.report_template
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="statisticType != null and statisticType != ''">
+                and statistic_type = #{statisticType}
+            </if>
+            <if test="code != null and code != ''">
+                and code = #{code}
+            </if>
+            <if test="sort != null">
+                and sort = #{sort}
+            </if>
+            <if test="url != null and url != ''">
+                and url = #{url}
+            </if>
+            <if test="docType != null and docType != ''">
+                and doc_type = #{docType}
+            </if>
+            <if test="group != null and group != ''">
+                and group_str = #{group}
+            </if>
+        </where>
+    </select>
+
+    <select id="listByType" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from public.report_template
+        <where>
+            <if test="statisticType != null and statisticType != ''">
+                statistic_type = #{statisticType}
+            </if>
+        </where>
+        order by sort asc
+    </select>
+
+    <select id="listByCodes" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from public.report_template
+        <where>
+            <if test="codes != null and codes.size() > 0">
+                and code in (
+                <foreach collection="codes" item="item" separator=",">
+                    #{item,jdbcType=VARCHAR}
+                </foreach>)
+            </if>
+        </where>
+        order by sort asc
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into public.report_template(name, statistic_type, code, sort)
+        values (#{name}, #{statisticType}, #{code}, #{sort})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update public.report_template
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="statisticType != null and statisticType != ''">
+                statistic_type = #{statisticType},
+            </if>
+            <if test="code != null and code != ''">
+                code = #{code},
+            </if>
+            <if test="sort != null">
+                sort = #{sort},
+            </if>
+            <if test="url != null and url != ''">
+                url = #{url},
+            </if>
+            <if test="docType != null and docType != ''">
+                doc_type = #{docType},
+            </if>
+            <if test="group != null and group != ''">
+                group_str = #{docType},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from public.report_template where id = #{id}
+    </delete>
+
+</mapper>

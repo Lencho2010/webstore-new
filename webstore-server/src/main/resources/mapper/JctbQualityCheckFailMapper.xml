@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.geoway.webstore.dao.JctbQualityCheckFailMapper">
+    <resultMap id="BaseResultMap" type="com.geoway.webstore.entity.JctbQualityCheckFail">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="task_name" jdbcType="VARCHAR" property="taskName"/>
+        <result column="province_code" jdbcType="VARCHAR" property="provinceCode"/>
+        <result column="province_name" jdbcType="VARCHAR" property="provinceName"/>
+        <result column="city_code" jdbcType="VARCHAR" property="cityCode"/>
+        <result column="city_name" jdbcType="VARCHAR" property="cityName"/>
+        <result column="county_code" jdbcType="VARCHAR" property="countyCode"/>
+        <result column="county_name" jdbcType="VARCHAR" property="countyName"/>
+        <result column="rule_code" jdbcType="VARCHAR" property="ruleCode"/>
+        <result column="rule_name" jdbcType="VARCHAR" property="ruleName"/>
+        <result column="tbbh" jdbcType="VARCHAR" property="tbbh"/>
+        <result column="final_result" jdbcType="VARCHAR" property="finalResult"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+        , task_name, province_code, province_name, city_code, city_name, county_code, county_name,
+    rule_code, rule_name, tbbh, final_result
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from jctb_quality_check_fail
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from jctb_quality_check_fail
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.geoway.webstore.entity.JctbQualityCheckFail">
+        insert into jctb_quality_check_fail (id, task_name, province_code,
+                                             province_name, city_code, city_name,
+                                             county_code, county_name, rule_code,
+                                             rule_name, tbbh, final_result)
+        values (#{id,jdbcType=BIGINT}, #{taskName,jdbcType=VARCHAR}, #{provinceCode,jdbcType=VARCHAR},
+                #{provinceName,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, #{cityName,jdbcType=VARCHAR},
+                #{countyCode,jdbcType=VARCHAR}, #{countyName,jdbcType=VARCHAR}, #{ruleCode,jdbcType=VARCHAR},
+                #{ruleName,jdbcType=VARCHAR}, #{tbbh,jdbcType=VARCHAR}, #{finalResult,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.geoway.webstore.entity.JctbQualityCheckFail">
+        insert into jctb_quality_check_fail
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="taskName != null">
+                task_name,
+            </if>
+            <if test="provinceCode != null">
+                province_code,
+            </if>
+            <if test="provinceName != null">
+                province_name,
+            </if>
+            <if test="cityCode != null">
+                city_code,
+            </if>
+            <if test="cityName != null">
+                city_name,
+            </if>
+            <if test="countyCode != null">
+                county_code,
+            </if>
+            <if test="countyName != null">
+                county_name,
+            </if>
+            <if test="ruleCode != null">
+                rule_code,
+            </if>
+            <if test="ruleName != null">
+                rule_name,
+            </if>
+            <if test="tbbh != null">
+                tbbh,
+            </if>
+            <if test="finalResult != null">
+                final_result,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="taskName != null">
+                #{taskName,jdbcType=VARCHAR},
+            </if>
+            <if test="provinceCode != null">
+                #{provinceCode,jdbcType=VARCHAR},
+            </if>
+            <if test="provinceName != null">
+                #{provinceName,jdbcType=VARCHAR},
+            </if>
+            <if test="cityCode != null">
+                #{cityCode,jdbcType=VARCHAR},
+            </if>
+            <if test="cityName != null">
+                #{cityName,jdbcType=VARCHAR},
+            </if>
+            <if test="countyCode != null">
+                #{countyCode,jdbcType=VARCHAR},
+            </if>
+            <if test="countyName != null">
+                #{countyName,jdbcType=VARCHAR},
+            </if>
+            <if test="ruleCode != null">
+                #{ruleCode,jdbcType=VARCHAR},
+            </if>
+            <if test="ruleName != null">
+                #{ruleName,jdbcType=VARCHAR},
+            </if>
+            <if test="tbbh != null">
+                #{tbbh,jdbcType=VARCHAR},
+            </if>
+            <if test="finalResult != null">
+                #{finalResult,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.geoway.webstore.entity.JctbQualityCheckFail">
+        update jctb_quality_check_fail
+        <set>
+            <if test="taskName != null">
+                task_name = #{taskName,jdbcType=VARCHAR},
+            </if>
+            <if test="provinceCode != null">
+                province_code = #{provinceCode,jdbcType=VARCHAR},
+            </if>
+            <if test="provinceName != null">
+                province_name = #{provinceName,jdbcType=VARCHAR},
+            </if>
+            <if test="cityCode != null">
+                city_code = #{cityCode,jdbcType=VARCHAR},
+            </if>
+            <if test="cityName != null">
+                city_name = #{cityName,jdbcType=VARCHAR},
+            </if>
+            <if test="countyCode != null">
+                county_code = #{countyCode,jdbcType=VARCHAR},
+            </if>
+            <if test="countyName != null">
+                county_name = #{countyName,jdbcType=VARCHAR},
+            </if>
+            <if test="ruleCode != null">
+                rule_code = #{ruleCode,jdbcType=VARCHAR},
+            </if>
+            <if test="ruleName != null">
+                rule_name = #{ruleName,jdbcType=VARCHAR},
+            </if>
+            <if test="tbbh != null">
+                tbbh = #{tbbh,jdbcType=VARCHAR},
+            </if>
+            <if test="finalResult != null">
+                final_result = #{finalResult,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.geoway.webstore.entity.JctbQualityCheckFail">
+        update jctb_quality_check_fail
+        set task_name     = #{taskName,jdbcType=VARCHAR},
+            province_code = #{provinceCode,jdbcType=VARCHAR},
+            province_name = #{provinceName,jdbcType=VARCHAR},
+            city_code     = #{cityCode,jdbcType=VARCHAR},
+            city_name     = #{cityName,jdbcType=VARCHAR},
+            county_code   = #{countyCode,jdbcType=VARCHAR},
+            county_name   = #{countyName,jdbcType=VARCHAR},
+            rule_code     = #{ruleCode,jdbcType=VARCHAR},
+            rule_name     = #{ruleName,jdbcType=VARCHAR},
+            tbbh          = #{tbbh,jdbcType=VARCHAR},
+            final_result  = #{finalResult,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <insert id="batchInsert" parameterType="com.geoway.webstore.entity.JctbQualityCheckFail">
+        insert into jctb_quality_check_fail (id, task_name, province_code,
+        province_name, city_code, city_name,
+        county_code, county_name, rule_code,
+        rule_name, tbbh, final_result)
+        values
+        <foreach collection="records" item="record" separator=",">
+            (#{record.id,jdbcType=BIGINT}, #{record.taskName,jdbcType=VARCHAR}, #{record.provinceCode,jdbcType=VARCHAR},
+            #{record.provinceName,jdbcType=VARCHAR}, #{record.cityCode,jdbcType=VARCHAR},
+            #{record.cityName,jdbcType=VARCHAR},
+            #{record.countyCode,jdbcType=VARCHAR}, #{record.countyName,jdbcType=VARCHAR},
+            #{record.ruleCode,jdbcType=VARCHAR},
+            #{record.ruleName,jdbcType=VARCHAR}, #{record.tbbh,jdbcType=VARCHAR},
+            #{record.finalResult,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+    <delete id="deleteByTaskName" parameterType="java.lang.String">
+        delete
+        from jctb_quality_check_fail
+        where task_name = #{taskName,jdbcType=VARCHAR}
+    </delete>
+
+    <select id="listByTaskName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from jctb_quality_check_fail
+        where task_name = #{taskName,jdbcType=VARCHAR}
+    </select>
+</mapper>

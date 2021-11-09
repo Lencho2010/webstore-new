@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.geoway.webstore.dao.JctbContrastDetailDao">
+
+    <resultMap id="BaseResultMap" type="com.geoway.webstore.entity.JctbContrastDetail">
+        <!--@Table jctb_contrast_detail-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="taskName" column="task_name" jdbcType="VARCHAR"/>
+        <result property="provinceCode" column="province_code" jdbcType="VARCHAR"/>
+        <result property="provinceName" column="province_name" jdbcType="VARCHAR"/>
+        <result property="cityCode" column="city_code" jdbcType="VARCHAR"/>
+        <result property="cityName" column="city_name" jdbcType="VARCHAR"/>
+        <result property="countyCode" column="county_code" jdbcType="VARCHAR"/>
+        <result property="countyName" column="county_name" jdbcType="VARCHAR"/>
+        <result property="originCount" column="origin_count" jdbcType="INTEGER"/>
+        <result property="resultCount" column="result_count" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="fail" column="fail" jdbcType="VARCHAR"/>
+        <result property="info" column="info" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        ,task_name, province_code, province_name, city_code, city_name,
+        county_code, county_name, origin_count, result_count, status, fail, info
+    </sql>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select id,
+               task_name,
+               province_code,
+               province_name,
+               city_code,
+               city_name,
+               county_code,
+               county_name,
+               origin_count,
+               result_count,
+               status,
+               fail,
+               info
+        from public.jctb_contrast_detail
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select id,
+               task_name,
+               province_code,
+               province_name,
+               city_code,
+               city_name,
+               county_code,
+               county_name,
+               origin_count,
+               result_count,
+               status,
+               fail,
+               info
+        from public.jctb_contrast_detail limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+        id, task_name, province_code, province_name, city_code, city_name, county_code, county_name, origin_count,
+        result_count,status, fail, info
+        from public.jctb_contrast_detail
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="taskName != null and taskName != ''">
+                and task_name = #{taskName}
+            </if>
+            <if test="provinceCode != null and provinceCode != ''">
+                and province_code = #{provinceCode}
+            </if>
+            <if test="provinceName != null and provinceName != ''">
+                and province_name = #{provinceName}
+            </if>
+            <if test="cityCode != null and cityCode != ''">
+                and city_code = #{cityCode}
+            </if>
+            <if test="cityName != null and cityName != ''">
+                and city_name = #{cityName}
+            </if>
+            <if test="countyCode != null and countyCode != ''">
+                and county_code = #{countyCode}
+            </if>
+            <if test="countyName != null and countyName != ''">
+                and county_name = #{countyName}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="fail != null and fail != ''">
+                and fail = #{fail}
+            </if>
+            <if test="info != null and info != ''">
+                and info = #{info}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into public.jctb_contrast_detail(task_name, province_code, province_name, city_code, city_name,
+                                                county_code, county_name, origin_count, result_count, status, fail,
+                                                info)
+        values (#{taskName}, #{provinceCode}, #{provinceName}, #{cityCode}, #{cityName}, #{countyCode}, #{countyName},
+                #{originCount}, #{resultCount}, #{status}, #{fail}, #{info})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update public.jctb_contrast_detail
+        <set>
+            <if test="taskName != null and taskName != ''">
+                task_name = #{taskName},
+            </if>
+            <if test="provinceCode != null and provinceCode != ''">
+                province_code = #{provinceCode},
+            </if>
+            <if test="provinceName != null and provinceName != ''">
+                province_name = #{provinceName},
+            </if>
+            <if test="cityCode != null and cityCode != ''">
+                city_code = #{cityCode},
+            </if>
+            <if test="cityName != null and cityName != ''">
+                city_name = #{cityName},
+            </if>
+            <if test="countyCode != null and countyCode != ''">
+                county_code = #{countyCode},
+            </if>
+            <if test="countyName != null and countyName != ''">
+                county_name = #{countyName},
+            </if>
+            <if test="originCount != null">
+                origin_count = #{originCount},
+            </if>
+            <if test="resultCount != null">
+                result_count = #{resultCount},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="fail != null and fail != ''">
+                fail = #{fail},
+            </if>
+            <if test="info != null and info != ''">
+                info = #{info},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from public.jctb_contrast_detail
+        where id = #{id}
+    </delete>
+
+    <insert id="batchInsert" parameterType="com.geoway.webstore.entity.JctbQualityCheckFail">
+        insert into jctb_contrast_detail (id,task_name, province_code, province_name, city_code, city_name,
+        county_code, county_name, origin_count, result_count, status, fail, info)
+        values
+        <foreach collection="records" item="record" separator=",">
+            (#{record.id},#{record.taskName}, #{record.provinceCode}, #{record.provinceName}, #{record.cityCode},
+            #{record.cityName}, #{record.countyCode}, #{record.countyName},
+            #{record.originCount},#{record.resultCount},#{record.status}, #{record.fail}, #{record.info})
+        </foreach>
+    </insert>
+
+    <delete id="deleteByTaskName" parameterType="java.lang.String">
+        delete
+        from jctb_contrast_detail
+        where task_name = #{taskName,jdbcType=VARCHAR}
+    </delete>
+
+    <select id="listByTaskName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from jctb_contrast_detail
+        where task_name = #{taskName,jdbcType=VARCHAR}
+    </select>
+
+</mapper>

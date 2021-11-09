@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.geoway.webstore.dao.JctbTaskMapper">
+  <resultMap id="BaseResultMap" type="com.geoway.webstore.entity.JctbTask">
+    <id column="task_name" jdbcType="VARCHAR" property="taskName" />
+    <result column="status" jdbcType="SMALLINT" property="status" />
+    <result column="progress" jdbcType="SMALLINT" property="progress" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="tb_count" jdbcType="INTEGER" property="tbCount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    task_name, status, progress, start_time, end_time, creator, tb_count
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from jctb_task
+    where task_name = #{taskName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from jctb_task
+    where task_name = #{taskName,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.geoway.webstore.entity.JctbTask">
+    insert into jctb_task (task_name, status, progress, 
+      start_time, end_time, creator, 
+      tb_count)
+    values (#{taskName,jdbcType=VARCHAR}, #{status,jdbcType=SMALLINT}, #{progress,jdbcType=SMALLINT}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
+      #{tbCount,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.geoway.webstore.entity.JctbTask">
+    insert into jctb_task
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taskName != null">
+        task_name,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="progress != null">
+        progress,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="tbCount != null">
+        tb_count,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskName != null">
+        #{taskName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="progress != null">
+        #{progress,jdbcType=SMALLINT},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="tbCount != null">
+        #{tbCount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.geoway.webstore.entity.JctbTask">
+    update jctb_task
+    <set>
+      <if test="status != null">
+        status = #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="progress != null">
+        progress = #{progress,jdbcType=SMALLINT},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="tbCount != null">
+        tb_count = #{tbCount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where task_name = #{taskName,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.geoway.webstore.entity.JctbTask">
+    update jctb_task
+    set status = #{status,jdbcType=SMALLINT},
+      progress = #{progress,jdbcType=SMALLINT},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      tb_count = #{tbCount,jdbcType=INTEGER}
+    where task_name = #{taskName,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateProgressAndStatusByTaskName" parameterType="com.geoway.webstore.entity.JctbTask">
+    update jctb_task
+    set status = #{status,jdbcType=SMALLINT},
+        progress = #{progress,jdbcType=SMALLINT}
+    where task_name = #{taskName,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateStatusByTaskName" parameterType="com.geoway.webstore.entity.JctbTask">
+    update jctb_task
+    set status = #{status,jdbcType=SMALLINT}
+        where task_name = #{taskName,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateProgressByTaskName" parameterType="com.geoway.webstore.entity.JctbTask">
+    update jctb_task
+    set progress = #{progress,jdbcType=SMALLINT}
+        where task_name = #{taskName,jdbcType=VARCHAR}
+  </update>
+
+  <select id="listByTaskNameAndStatus" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from jctb_task
+    where 1=1
+    <if test="status != null and status.size() > 0">
+      and status in (
+      <foreach collection="status" item="item" separator=",">
+        #{item,jdbcType=NUMERIC}
+      </foreach>)
+    </if>
+    <if test="taskName != null and taskName != ''">
+      and task_name like '%${taskName}%'
+    </if>
+    order by start_time desc
+  </select>
+
+  <select id="listByStatus" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from jctb_task
+    where 1=1
+    <if test="status != null and status.size() > 0">
+      and status in (
+      <foreach collection="status" item="item" separator=",">
+        #{item,jdbcType=NUMERIC}
+      </foreach>)
+    </if>
+    order by task_name asc
+  </select>
+
+  <select id="listByFilter" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from jctb_task
+    where start_time between '${fromDate}' and '${toDate}'
+    <if test="status != null and status.size() > 0">
+      and status in (
+      <foreach collection="status" item="item" separator=",">
+        #{item,jdbcType=NUMERIC}
+      </foreach>)
+    </if>
+    <if test="taskName != null and taskName != ''">
+      and task_name like '%${taskName}%'
+    </if>
+    order by start_time desc
+  </select>
+</mapper>

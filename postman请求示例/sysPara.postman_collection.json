@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "5441e6a8-f983-43aa-a7a8-aae60ce2d916",
+		"name": "sysPara",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "serviceStatus查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/sysPara/serviceStatus",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"sysPara",
+						"serviceStatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "serviceStatus修改",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/sysPara/serviceStatus/0",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"sysPara",
+						"serviceStatus",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "scanInterval查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/sysPara/scanInterval",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"sysPara",
+						"scanInterval"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "scanInterval更新",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/sysPara/scanInterval/30",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"sysPara",
+						"scanInterval",
+						"30"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "scanPath查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/sysPara/scanPath",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"sysPara",
+						"scanPath"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "scanPaths查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/sysPara/scanPaths",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"sysPara",
+						"scanPaths"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "scanPath更新",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/sysPara/scanPath?scanPath=hadoop104:5432/db2021",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"sysPara",
+						"scanPath"
+					],
+					"query": [
+						{
+							"key": "scanPath",
+							"value": "hadoop104:5432/db2021"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

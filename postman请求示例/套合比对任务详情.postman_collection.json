@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "d1e7a2d8-088e-40b1-9d39-544558172bc1",
+		"name": "套合比对任务详情",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "根据id查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTaskDetail/1001",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTaskDetail",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "插入",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1002,\r\n    \"parentId\": 1002,\r\n    \"taskName\": \"2021S205190028\",\r\n    \"status\": 1,\r\n    \"log\": \"数据文件正常打开\",\r\n    \"startTime\": \"2021-09-08 18:34:53\",\r\n    \"endTime\": \"2021-09-08 18:34:58\",\r\n    \"stepCode\": 1002\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTaskDetail",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTaskDetail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据parentId查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTaskDetail/listByParentId/1001",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTaskDetail",
+						"listByParentId",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据任务名称查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTaskDetail/listByTaskName/2021S205190028",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTaskDetail",
+						"listByTaskName",
+						"2021S205190028"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据任务名称和stepCode查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTaskDetail/listByTaskNameAndStepCode/2021S205190028/1002",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTaskDetail",
+						"listByTaskNameAndStepCode",
+						"2021S205190028",
+						"1002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "批量插入",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 10028,\r\n        \"parentId\": 1006,\r\n        \"stepCode\": 1006,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"stepInfo\": \"150502-科尔沁区\",\r\n        \"startTime\": \"2021-09-01 15:40:48\",\r\n        \"endTime\": \"2021-09-02 15:40:52\",\r\n        \"log\": \"[2021-06-21 10:01:33] \\\\\\\\172.16.67.66\\\\…\\\\150502.mdb YGJCTB开始入库...\",\r\n        \"status\": 1\r\n    },\r\n    {\r\n        \"id\": 10029,\r\n        \"parentId\": 1006,\r\n        \"stepCode\": 1006,\r\n        \"taskName\": \"2021S205190028\",\r\n        \"stepInfo\": \"150502-科尔沁区\",\r\n        \"startTime\": \"2021-09-01 15:40:48\",\r\n        \"endTime\": \"2021-09-02 15:40:52\",\r\n        \"log\": \"[2021-06-21 10:01:33] \\\\\\\\172.16.67.66\\\\…\\\\150502.mdb YGJCTB开始入库...\",\r\n        \"status\": 1\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbTaskDetail/batch",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbTaskDetail",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

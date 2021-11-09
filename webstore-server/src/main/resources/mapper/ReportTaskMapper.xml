@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.geoway.webstore.dao.ReportTaskDao">
+
+    <resultMap id="BaseResultMap" type="com.geoway.webstore.entity.ReportTask">
+        <!--@Table report_task-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="chargePerson" column="charge_person" jdbcType="VARCHAR"/>
+        <result property="desc" column="desc_str" jdbcType="VARCHAR"/>
+        <result property="statisticType" column="statistic_type" jdbcType="VARCHAR"/>
+        <result property="fromDate" column="from_date" jdbcType="TIMESTAMP"/>
+        <result property="toDate" column="to_date" jdbcType="TIMESTAMP"/>
+        <result property="taskNames" column="task_names" jdbcType="VARCHAR"/>
+        <result property="exportDocs" column="export_docs" jdbcType="VARCHAR"/>
+        <result property="exportPath" column="export_path" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="startTime" column="start_time" jdbcType="TIMESTAMP"/>
+        <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        , name, charge_person, desc_str, statistic_type, from_date, to_date, task_names, export_docs, export_path, status, create_time, start_time, end_time
+    </sql>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from public.report_task
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from public.report_task
+        limit #{offset}, #{limit}
+    </select>
+
+    <select id="listChargePerson" resultType="java.lang.String">
+        select distinct charge_person from public.report_task order by charge_person asc
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from public.report_task
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="name != null and name != ''">
+                and name like '%${name}%'
+            </if>
+            <if test="chargePerson != null and chargePerson != ''">
+                and charge_person = #{chargePerson}
+            </if>
+            <if test="desc != null and desc != ''">
+                and desc = #{desc}
+            </if>
+            <if test="statisticType != null and statisticType != ''">
+                and statistic_type = #{statisticType}
+            </if>
+            <if test="fromDate != null">
+                and from_date = #{fromDate}
+            </if>
+            <if test="toDate != null">
+                and to_date = #{toDate}
+            </if>
+            <if test="taskNames != null and taskNames != ''">
+                and task_names = #{taskNames}
+            </if>
+            <if test="exportDocs != null and exportDocs != ''">
+                and export_docs = #{exportDocs}
+            </if>
+            <if test="exportPath != null and exportPath != ''">
+                and export_path = #{exportPath}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="startTime != null">
+                and start_time = #{startTime}
+            </if>
+            <if test="endTime != null">
+                and end_time = #{endTime}
+            </if>
+        </where>
+        order by create_time desc
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert">
+        insert into public.report_task(id, name, charge_person, desc_str, statistic_type, from_date, to_date,
+                                       task_names, export_docs, export_path, status, create_time, start_time, end_time)
+        values (#{id}, #{name}, #{chargePerson}, #{desc}, #{statisticType}, #{fromDate}, #{toDate}, #{taskNames},
+                #{exportDocs}, #{exportPath}, #{status}, #{createTime}, #{startTime}, #{endTime})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update public.report_task
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="chargePerson != null and chargePerson != ''">
+                charge_person = #{chargePerson},
+            </if>
+            <if test="desc != null and desc != ''">
+                desc_str = #{desc},
+            </if>
+            <if test="statisticType != null and statisticType != ''">
+                statistic_type = #{statisticType},
+            </if>
+            <if test="fromDate != null">
+                from_date = #{fromDate},
+            </if>
+            <if test="toDate != null">
+                to_date = #{toDate},
+            </if>
+            <if test="taskNames != null and taskNames != ''">
+                task_names = #{taskNames},
+            </if>
+            <if test="exportDocs != null and exportDocs != ''">
+                export_docs = #{exportDocs},
+            </if>
+            <if test="exportPath != null and exportPath != ''">
+                export_path = #{exportPath},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="startTime != null">
+                start_time = #{startTime},
+            </if>
+            <if test="endTime != null">
+                end_time = #{endTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from public.report_task
+        where id = #{id}
+    </delete>
+
+</mapper>

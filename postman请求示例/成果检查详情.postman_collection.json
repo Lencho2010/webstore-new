@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "2deaea0c-dc48-40f9-b879-b857259985c2",
+		"name": "成果检查详情",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "批量插入",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"taskName\": \"2021S205190028\",\r\n        \"countyCode\": \"650421\",\r\n        \"countyName\": \"鄯善县\",\r\n        \"cityCode\": \"650400\",\r\n        \"cityName\": \"吐鲁番市\",\r\n        \"provinceCode\": \"650000\",\r\n        \"provinceName\": \"新疆维吾尔自治区\",\r\n        \"status\": 2,\r\n        \"info\": \"\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbResultCheckDetail/batch",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbResultCheckDetail",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据任务名称查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbResultCheckDetail/2021S205190028",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbResultCheckDetail",
+						"2021S205190028"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据任务名称查询(带索引序号)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbResultCheckDetail/list/2021S205190028",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbResultCheckDetail",
+						"list",
+						"2021S205190028"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据任务名称删除",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbResultCheckDetail/2021S205190028",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbResultCheckDetail",
+						"2021S205190028"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据ID更新",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 635937445887741952,\r\n    \"index\": 1,\r\n    \"taskName\": \"2021S205190028\",\r\n    \"provinceCode\": \"650000\",\r\n    \"provinceName\": \"新疆维吾尔自治区\",\r\n    \"cityCode\": \"650400\",\r\n    \"cityName\": \"吐鲁番市\",\r\n    \"countyCode\": \"650421\",\r\n    \"countyName\": \"鄯善县\",\r\n    \"status\": 2,\r\n    \"info\": \"成果检查结果信息\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbResultCheckDetail",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbResultCheckDetail"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

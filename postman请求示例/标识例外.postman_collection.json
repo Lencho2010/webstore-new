@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "daca5e28-d789-42c2-a12d-f8b65c70fc80",
+		"name": "标识例外",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "批量插入",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"taskName\": \"2021S205190028\",\r\n        \"provinceCode\": \"510000\",\r\n        \"provinceName\": \"四川省\",\r\n        \"cityCode\": \"511800\",\r\n        \"cityName\": \"雅安市\",\r\n        \"countyCode\": \"511824\",\r\n        \"countyName\": \"石棉县\",\r\n        \"jcbh\": \"20211001\",\r\n        \"errorType\": \"1001\",\r\n        \"errorDesc\": \"错误描述\",\r\n        \"isMark\": 0,\r\n        \"markReason\": \"\",\r\n        \"stepCode\": 1002\r\n    },\r\n    {\r\n        \"taskName\": \"2021S205190028\",\r\n        \"provinceCode\": \"510000\",\r\n        \"provinceName\": \"四川省\",\r\n        \"cityCode\": \"511800\",\r\n        \"cityName\": \"雅安市\",\r\n        \"countyCode\": \"511824\",\r\n        \"countyName\": \"石棉县\",\r\n        \"jcbh\": \"20211001\",\r\n        \"errorType\": \"1001\",\r\n        \"errorDesc\": \"错误描述\",\r\n        \"isMark\": 1,\r\n        \"markReason\": \"测试标识例外\",\r\n        \"stepCode\": 1003\r\n    },\r\n    {\r\n        \"taskName\": \"2021S205190028\",\r\n        \"provinceCode\": \"510000\",\r\n        \"provinceName\": \"四川省\",\r\n        \"cityCode\": \"511800\",\r\n        \"cityName\": \"雅安市\",\r\n        \"countyCode\": \"511824\",\r\n        \"countyName\": \"石棉县\",\r\n        \"jcbh\": \"20211001\",\r\n        \"errorType\": \"1002\",\r\n        \"errorDesc\": \"错误描述2222\",\r\n        \"isMark\": 1,\r\n        \"markReason\": \"测试标识例外\",\r\n        \"stepCode\": 1004\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbMarkException/batch",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbMarkException",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据任务名称查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbMarkException/2021S205190028",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbMarkException",
+						"2021S205190028"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据任务名称查询(带索引序号)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbMarkException/list/2021S205190028",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbMarkException",
+						"list",
+						"2021S205190028"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据任务名称删除",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/webstore/jctbMarkException/2021S205190028",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbMarkException",
+						"2021S205190028"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据ID更新(返回更新后对象)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 636247767374761984,\r\n    \"taskName\": \"2021S205190028\",\r\n    \"provinceCode\": \"510000\",\r\n    \"provinceName\": \"四川省\",\r\n    \"cityCode\": \"511800\",\r\n    \"cityName\": \"雅安市\",\r\n    \"countyCode\": \"511824\",\r\n    \"countyName\": \"石棉县\",\r\n    \"jcbh\": \"20211001\",\r\n    \"errorType\": \"1001\",\r\n    \"errorDesc\": \"错误描述更新\",\r\n    \"isMark\": 0,\r\n    \"markReason\": \"\",\r\n    \"stepCode\": 1002\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbMarkException",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbMarkException"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "批量插入测试数据2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"taskName\": \"2021S105300011\",\r\n        \"countyCode\": \"110111\",\r\n        \"countyName\": \"房山区111\",\r\n        \"cityCode\": \"110100\",\r\n        \"cityName\": \"北京市\",\r\n        \"provinceCode\": \"110000\",\r\n        \"provinceName\": \"北京市\",\r\n        \"jcbh\": \"jcbh1001\",\r\n        \"errorType\": \"\",\r\n        \"errorDesc\": \"\",\r\n        \"isMark\": 0,\r\n        \"markReason\": \"\",\r\n        \"stepCode\": 1002\r\n    },\r\n    {\r\n        \"taskName\": \"2021S105300022\",\r\n        \"countyCode\": \"110222\",\r\n        \"countyName\": \"房山区222\",\r\n        \"cityCode\": \"110100\",\r\n        \"cityName\": \"北京市\",\r\n        \"provinceCode\": \"110000\",\r\n        \"provinceName\": \"北京市\",\r\n        \"jcbh\": \"jcbh1002\",\r\n        \"errorType\": \"\",\r\n        \"errorDesc\": \"\",\r\n        \"isMark\": 0,\r\n        \"markReason\": \"\",\r\n        \"stepCode\": 1002\r\n    },\r\n    {\r\n        \"taskName\": \"2021S105300033\",\r\n        \"countyCode\": \"110333\",\r\n        \"countyName\": \"房山区333\",\r\n        \"cityCode\": \"110100\",\r\n        \"cityName\": \"北京市\",\r\n        \"provinceCode\": \"110000\",\r\n        \"provinceName\": \"北京市\",\r\n        \"jcbh\": \"jcbh1003\",\r\n        \"errorType\": \"\",\r\n        \"errorDesc\": \"\",\r\n        \"isMark\": 0,\r\n        \"markReason\": \"\",\r\n        \"stepCode\": 1002\r\n    },\r\n    {\r\n        \"taskName\": \"2021S105300044\",\r\n        \"countyCode\": \"110444\",\r\n        \"countyName\": \"房山区444\",\r\n        \"cityCode\": \"110100\",\r\n        \"cityName\": \"北京市\",\r\n        \"provinceCode\": \"110000\",\r\n        \"provinceName\": \"北京市\",\r\n        \"jcbh\": \"jcbh1004\",\r\n        \"errorType\": \"\",\r\n        \"errorDesc\": \"\",\r\n        \"isMark\": 0,\r\n        \"markReason\": \"\",\r\n        \"stepCode\": 1002\r\n    },\r\n    {\r\n        \"taskName\": \"2021S105300055\",\r\n        \"countyCode\": \"110555\",\r\n        \"countyName\": \"房山区555\",\r\n        \"cityCode\": \"110100\",\r\n        \"cityName\": \"北京市\",\r\n        \"provinceCode\": \"110000\",\r\n        \"provinceName\": \"北京市\",\r\n        \"jcbh\": \"jcbh1005\",\r\n        \"errorType\": \"\",\r\n        \"errorDesc\": \"\",\r\n        \"isMark\": 0,\r\n        \"markReason\": \"\",\r\n        \"stepCode\": 1002\r\n    },\r\n    {\r\n        \"taskName\": \"2021S105300066\",\r\n        \"countyCode\": \"110666\",\r\n        \"countyName\": \"房山区666\",\r\n        \"cityCode\": \"110100\",\r\n        \"cityName\": \"北京市\",\r\n        \"provinceCode\": \"110000\",\r\n        \"provinceName\": \"北京市\",\r\n        \"jcbh\": \"jcbh1006\",\r\n        \"errorType\": \"\",\r\n        \"errorDesc\": \"\",\r\n        \"isMark\": 0,\r\n        \"markReason\": \"\",\r\n        \"stepCode\": 1002\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbMarkException/batch",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbMarkException",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "批量更新",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\":636249919010770944,\r\n        \"taskName\": \"2021S105300011\",\r\n        \"countyCode\": \"110111\",\r\n        \"countyName\": \"房山区111\",\r\n        \"cityCode\": \"110100\",\r\n        \"cityName\": \"北京市\",\r\n        \"provinceCode\": \"110000\",\r\n        \"provinceName\": \"北京市\",\r\n        \"jcbh\": \"jcbh1001\",\r\n        \"errorType\": \"\",\r\n        \"errorDesc\": \"\",\r\n        \"isMark\": 1,\r\n        \"markReason\": \"123456\",\r\n        \"stepCode\": 1002\r\n    }\r\n    \r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/webstore/jctbMarkException/batch",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"webstore",
+						"jctbMarkException",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

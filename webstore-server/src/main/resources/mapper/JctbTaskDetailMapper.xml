@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.geoway.webstore.dao.JctbTaskDetailMapper">
+    <resultMap id="BaseResultMap" type="com.geoway.webstore.entity.JctbTaskDetail">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="parent_id" jdbcType="BIGINT" property="parentId"/>
+        <result column="task_name" jdbcType="VARCHAR" property="taskName"/>
+        <result column="status" jdbcType="SMALLINT" property="status"/>
+        <result column="log" jdbcType="VARCHAR" property="log"/>
+        <result column="start_time" jdbcType="TIMESTAMP" property="startTime"/>
+        <result column="end_time" jdbcType="TIMESTAMP" property="endTime"/>
+        <result column="step_code" jdbcType="INTEGER" property="stepCode"/>
+        <result column="step_info" jdbcType="VARCHAR" property="stepInfo"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+        , parent_id, task_name, status, log, start_time, end_time, step_code,step_info
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from jctb_task_detail
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from jctb_task_detail
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.geoway.webstore.entity.JctbTaskDetail">
+        insert into jctb_task_detail (id, parent_id, task_name,
+                                      status, log, start_time,
+                                      end_time, step_code, step_info)
+        values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{taskName,jdbcType=VARCHAR},
+                #{status,jdbcType=SMALLINT}, #{log,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP},
+                #{endTime,jdbcType=TIMESTAMP}, #{stepCode,jdbcType=INTEGER}), #{stepInfo,jdbcType=VARCHAR}
+    </insert>
+
+    <insert id="batchInsert" parameterType="com.geoway.webstore.entity.JctbTaskDetail">
+        insert into jctb_task_detail (id, parent_id, task_name,
+        status, log, start_time,
+        end_time, step_code, step_info)
+        values
+        <foreach collection="records" item="record" separator=",">
+            (#{record.id,jdbcType=BIGINT}, #{record.parentId,jdbcType=BIGINT}, #{record.taskName,jdbcType=VARCHAR},
+            #{record.status,jdbcType=SMALLINT}, #{record.log,jdbcType=VARCHAR}, #{record.startTime,jdbcType=TIMESTAMP},
+            #{record.endTime,jdbcType=TIMESTAMP}, #{record.stepCode,jdbcType=INTEGER}, #{record.stepInfo,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.geoway.webstore.entity.JctbTaskDetail">
+        insert into jctb_task_detail
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="parentId != null">
+                parent_id,
+            </if>
+            <if test="taskName != null">
+                task_name,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="log != null">
+                log,
+            </if>
+            <if test="startTime != null">
+                start_time,
+            </if>
+            <if test="endTime != null">
+                end_time,
+            </if>
+            <if test="stepCode != null">
+                step_code,
+            </if>
+            <if test="stepInfo != null">
+                step_info,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="parentId != null">
+                #{parentId,jdbcType=BIGINT},
+            </if>
+            <if test="taskName != null">
+                #{taskName,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=SMALLINT},
+            </if>
+            <if test="log != null">
+                #{log,jdbcType=VARCHAR},
+            </if>
+            <if test="startTime != null">
+                #{startTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="endTime != null">
+                #{endTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="stepCode != null">
+                #{stepCode,jdbcType=INTEGER},
+            </if>
+            <if test="stepInfo != null">
+                #{stepInfo,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.geoway.webstore.entity.JctbTaskDetail">
+        update jctb_task_detail
+        <set>
+            <if test="parentId != null">
+                parent_id = #{parentId,jdbcType=BIGINT},
+            </if>
+            <if test="taskName != null">
+                task_name = #{taskName,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=SMALLINT},
+            </if>
+            <if test="log != null">
+                log = #{log,jdbcType=VARCHAR},
+            </if>
+            <if test="startTime != null">
+                start_time = #{startTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="endTime != null">
+                end_time = #{endTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="stepCode != null">
+                step_code = #{stepCode,jdbcType=INTEGER},
+            </if>
+            <if test="stepInfo != null">
+                step_info = #{stepCode,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.geoway.webstore.entity.JctbTaskDetail">
+        update jctb_task_detail
+        set parent_id  = #{parentId,jdbcType=BIGINT},
+            task_name  = #{taskName,jdbcType=VARCHAR},
+            status     = #{status,jdbcType=SMALLINT},
+            log        = #{log,jdbcType=VARCHAR},
+            start_time = #{startTime,jdbcType=TIMESTAMP},
+            end_time   = #{endTime,jdbcType=TIMESTAMP},
+            step_info  = #{stepInfo,jdbcType=VARCHAR},
+            step_code  = #{stepCode,jdbcType=INTEGER}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <select id="listByParentId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from jctb_task_detail
+        where parent_id = #{parentId,jdbcType=BIGINT}
+    </select>
+
+    <select id="listByTaskName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from jctb_task_detail
+        where task_name = #{taskName}
+    </select>
+
+    <select id="listByTaskNameAndStepCode" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from jctb_task_detail
+        where task_name = #{taskName}
+        <if test="stepCode != null">
+            and step_code = #{stepCode}
+        </if>
+    </select>
+</mapper>
