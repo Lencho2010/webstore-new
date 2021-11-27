@@ -62,4 +62,13 @@ public class TbsysParaController {
     public boolean updateScanInterval(@PathVariable("scanInterval") String scanInterval) {
         return tbsysParaService.update(tbsysParaConfig.getScanIntervalKey(), scanInterval);
     }
+
+    /**
+     * 获取统计年份
+     * @return 返回年份数组json串，前端进行解析
+     */
+    @GetMapping("/reportYear")
+    public String findReportYear() {
+        return tbsysParaService.findOne(tbsysParaConfig.getReportYearKey()).getValue();
+    }
 }

@@ -41,6 +41,7 @@ spring:
       #归还连接时是否检测有效性
       test-on-return: false
 
+#mysql
 export:
   datasource:
     druid:
@@ -49,6 +50,25 @@ export:
       url: jdbc:mysql://hadoop104:3306/db01?useUnicode=true&characterEncoding=utf-8&useSSL=false
       username: root
       password: 123456
+
+#oracle
+#export:
+#  datasource:
+#    druid:
+#      driverClassName: oracle.jdbc.driver.OracleDriver
+#      #配置基本属性
+#      url: jdbc:oracle:thin:@localhost:1521:ORCL
+#      username: root
+#      password: 123456
+
+#postgres
+#export:
+#  datasource:
+#    druid:
+#      url: jdbc:postgresql://hadoop104:5432/db01?useUnicode=true&characterEncoding=utf8
+#      driver-class-name: org.postgresql.Driver
+#      username: postgres
+#      password: root
 
 #  quartz:
 #    #持久化到数据库方式
@@ -146,15 +166,6 @@ second:
       username: root
       password: 123456
 
-#second:
-#  datasource:
-#    druid:
-#      driverClassName: oracle.jdbc.driver.OracleDriver
-#      #配置基本属性
-#      url: jdbc:oracle:thin:@localhost:1521:ORCL
-#      username: root
-#      password: 123456
-
 # 线程池配置
 threadPool:
   core-pool-size: 10
@@ -169,6 +180,7 @@ sys-para:
   scanPathKey: eefc68d6-50d0-46ee-ae60-f7556941e92c
   scanPathsKey: a10519d2-85f3-4b06-b38a-2df9c6462623
   serviceStatusKey: add77e71-6603-4dd7-9ff9-6e2a947c398e
+  reportYearKey: 9f31921f-c7e6-b023-08cd-7f015de031be
 
 template-loader-path: classpath:templates
 #\\192.168.102.18\Reports\words

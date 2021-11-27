@@ -1,6 +1,6 @@
 package com.geoway.webstore.service;
 
-import com.geoway.webstore.dto.JctbResultCheckDetailDto;
+import com.geoway.webstore.dto.JctbResultCheckDetailDTO;
 import com.geoway.webstore.entity.JctbResultCheckDetail;
 import org.apache.ibatis.annotations.Param;
 
@@ -61,5 +61,5 @@ public interface JctbResultCheckDetailService {
 
     List<JctbResultCheckDetail> listByTaskName(String taskName);
 
-    List<JctbResultCheckDetailDto> listByTaskName2(String taskName);
+    List<JctbResultCheckDetailDTO> listByTaskName2(String taskName);
 }

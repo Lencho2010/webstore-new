@@ -1,7 +1,7 @@
 package com.geoway.webstore.controller;
 
 import com.geoway.webstore.anno.ResponseResult;
-import com.geoway.webstore.dto.JctbUnzipDetailDto;
+import com.geoway.webstore.dto.JctbUnzipDetailDTO;
 import com.geoway.webstore.entity.JctbUnzipDetail;
 import com.geoway.webstore.service.JctbUnzipDetailService;
 import org.springframework.web.bind.annotation.*;
@@ -48,7 +48,7 @@ public class JctbUnzipDetailController {
     }
 
     @GetMapping("/list/{taskName}")
-    public List<JctbUnzipDetailDto> listByTaskName2(@PathVariable("taskName") String taskName) {
+    public List<JctbUnzipDetailDTO> listByTaskName2(@PathVariable("taskName") String taskName) {
         return jctbUnzipDetailService.listByTaskName2(taskName);
     }
 

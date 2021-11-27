@@ -1,7 +1,8 @@
 package com.geoway.webstore.service;
 
-import com.geoway.webstore.dto.JctbQualityCheckOverviewDto;
+import com.geoway.webstore.dto.JctbQualityCheckOverviewDTO;
 import com.geoway.webstore.entity.JctbQualityCheckOverview;
+import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -31,5 +32,9 @@ public interface JctbQualityCheckOverviewService {
 
     List<JctbQualityCheckOverview> listByTaskName(String taskName);
 
-    List<JctbQualityCheckOverviewDto> listByTaskName2(String taskName);
+    List<JctbQualityCheckOverviewDTO> listByTaskName2(String taskName);
+
+    PageInfo pageByFilter(int page, int rows, JctbQualityCheckOverview entity);
+
+    List<JctbQualityCheckOverview> listByFilter(JctbQualityCheckOverview entity);
 }

@@ -1,7 +1,7 @@
 package com.geoway.webstore.controller;
 
 import com.geoway.webstore.anno.ResponseResult;
-import com.geoway.webstore.dto.JctbMarkExceptionDto;
+import com.geoway.webstore.dto.JctbMarkExceptionDTO;
 import com.geoway.webstore.entity.JctbMarkException;
 import com.geoway.webstore.service.JctbMarkExceptionService;
 import org.springframework.web.bind.annotation.*;
@@ -66,7 +66,7 @@ public class JctbMarkExceptionController {
     }
 
     @GetMapping("/list/{taskName}")
-    public List<JctbMarkExceptionDto> listByTaskName2(@PathVariable("taskName") String taskName) {
+    public List<JctbMarkExceptionDTO> listByTaskName2(@PathVariable("taskName") String taskName) {
         return jctbMarkExceptionService.listByTaskName2(taskName);
     }
 }

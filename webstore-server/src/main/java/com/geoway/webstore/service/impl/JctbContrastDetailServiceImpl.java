@@ -1,7 +1,7 @@
 package com.geoway.webstore.service.impl;
 
 import com.geoway.webstore.converter.JctbContrastDetailConverter;
-import com.geoway.webstore.dto.JctbContrastDetailDto;
+import com.geoway.webstore.dto.JctbContrastDetailDTO;
 import com.geoway.webstore.entity.JctbContrastDetail;
 import com.geoway.webstore.dao.JctbContrastDetailDao;
 import com.geoway.webstore.service.JctbContrastDetailService;
@@ -103,9 +103,9 @@ public class JctbContrastDetailServiceImpl implements JctbContrastDetailService 
     }
 
     @Override
-    public List<JctbContrastDetailDto> listByTaskName2(String taskName) {
+    public List<JctbContrastDetailDTO> listByTaskName2(String taskName) {
         List<JctbContrastDetail> details = jctbContrastDetailDao.listByTaskName(taskName);
-        List<JctbContrastDetailDto> dtoList = JctbContrastDetailConverter.Instance.domain2dto(details);
+        List<JctbContrastDetailDTO> dtoList = JctbContrastDetailConverter.Instance.domain2dto(details);
         IntStream.range(0, dtoList.size()).forEach(i -> dtoList.get(i).setIndex(i + 1));
         return dtoList;
     }

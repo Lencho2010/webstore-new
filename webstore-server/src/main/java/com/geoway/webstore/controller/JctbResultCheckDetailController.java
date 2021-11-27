@@ -1,7 +1,7 @@
 package com.geoway.webstore.controller;
 
 import com.geoway.webstore.anno.ResponseResult;
-import com.geoway.webstore.dto.JctbResultCheckDetailDto;
+import com.geoway.webstore.dto.JctbResultCheckDetailDTO;
 import com.geoway.webstore.entity.JctbResultCheckDetail;
 import com.geoway.webstore.service.JctbResultCheckDetailService;
 import org.springframework.web.bind.annotation.*;
@@ -61,7 +61,7 @@ public class JctbResultCheckDetailController {
     }
 
     @GetMapping("/list/{taskName}")
-    public List<JctbResultCheckDetailDto> listByTaskName2(@PathVariable("taskName") String taskName) {
+    public List<JctbResultCheckDetailDTO> listByTaskName2(@PathVariable("taskName") String taskName) {
         return jctbResultCheckDetailService.listByTaskName2(taskName);
     }
 }

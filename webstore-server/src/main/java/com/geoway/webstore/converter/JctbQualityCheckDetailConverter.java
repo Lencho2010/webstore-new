@@ -1,6 +1,6 @@
 package com.geoway.webstore.converter;
 
-import com.geoway.webstore.dto.JctbQualityCheckDetailDto;
+import com.geoway.webstore.dto.JctbQualityCheckDetailDTO;
 import com.geoway.webstore.entity.JctbQualityCheckDetail;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -21,7 +21,7 @@ public interface JctbQualityCheckDetailConverter {
     @Mappings({
             @Mapping(target = "index", ignore = true),
     })
-    JctbQualityCheckDetailDto domain2dto(JctbQualityCheckDetail domain);
+    JctbQualityCheckDetailDTO domain2dto(JctbQualityCheckDetail domain);
 
-    List<JctbQualityCheckDetailDto> domain2dto(List<JctbQualityCheckDetail> domain);
+    List<JctbQualityCheckDetailDTO> domain2dto(List<JctbQualityCheckDetail> domain);
 }

@@ -1,7 +1,7 @@
 package com.geoway.webstore.service.impl;
 
 import com.geoway.webstore.converter.JctbResultCheckDetailConverter;
-import com.geoway.webstore.dto.JctbResultCheckDetailDto;
+import com.geoway.webstore.dto.JctbResultCheckDetailDTO;
 import com.geoway.webstore.entity.JctbResultCheckDetail;
 import com.geoway.webstore.dao.JctbResultCheckDetailDao;
 import com.geoway.webstore.service.JctbResultCheckDetailService;
@@ -102,9 +102,9 @@ public class JctbResultCheckDetailServiceImpl implements JctbResultCheckDetailSe
     }
 
     @Override
-    public List<JctbResultCheckDetailDto> listByTaskName2(String taskName) {
+    public List<JctbResultCheckDetailDTO> listByTaskName2(String taskName) {
         List<JctbResultCheckDetail> details = jctbResultCheckDetailDao.listByTaskName(taskName);
-        List<JctbResultCheckDetailDto> dtoList = JctbResultCheckDetailConverter.Instance.domain2dto(details);
+        List<JctbResultCheckDetailDTO> dtoList = JctbResultCheckDetailConverter.Instance.domain2dto(details);
         IntStream.range(0, dtoList.size()).forEach(i -> dtoList.get(i).setIndex(i + 1));
         return dtoList;
     }

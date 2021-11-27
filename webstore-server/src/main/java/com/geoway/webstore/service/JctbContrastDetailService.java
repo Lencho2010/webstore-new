@@ -1,6 +1,6 @@
 package com.geoway.webstore.service;
 
-import com.geoway.webstore.dto.JctbContrastDetailDto;
+import com.geoway.webstore.dto.JctbContrastDetailDTO;
 import com.geoway.webstore.entity.JctbContrastDetail;
 import org.apache.ibatis.annotations.Param;
 
@@ -61,6 +61,6 @@ public interface JctbContrastDetailService {
 
     List<JctbContrastDetail> listByTaskName(String taskName);
 
-    List<JctbContrastDetailDto> listByTaskName2(String taskName);
+    List<JctbContrastDetailDTO> listByTaskName2(String taskName);
 
 }

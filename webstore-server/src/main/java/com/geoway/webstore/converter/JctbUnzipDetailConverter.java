@@ -1,6 +1,6 @@
 package com.geoway.webstore.converter;
 
-import com.geoway.webstore.dto.JctbUnzipDetailDto;
+import com.geoway.webstore.dto.JctbUnzipDetailDTO;
 import com.geoway.webstore.entity.JctbUnzipDetail;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -21,7 +21,7 @@ public interface JctbUnzipDetailConverter {
     @Mappings({
             @Mapping(target = "index", ignore = true)
     })
-    JctbUnzipDetailDto domain2dto(JctbUnzipDetail domain);
+    JctbUnzipDetailDTO domain2dto(JctbUnzipDetail domain);
 
-    List<JctbUnzipDetailDto> domain2dto(List<JctbUnzipDetail> domain);
+    List<JctbUnzipDetailDTO> domain2dto(List<JctbUnzipDetail> domain);
 }

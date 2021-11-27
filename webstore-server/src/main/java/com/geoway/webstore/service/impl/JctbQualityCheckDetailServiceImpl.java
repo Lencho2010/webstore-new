@@ -2,10 +2,13 @@ package com.geoway.webstore.service.impl;
 
 import com.geoway.webstore.converter.JctbQualityCheckDetailConverter;
 import com.geoway.webstore.dao.JctbQualityCheckDetailMapper;
-import com.geoway.webstore.dto.JctbQualityCheckDetailDto;
+import com.geoway.webstore.dto.JctbQualityCheckDetailDTO;
 import com.geoway.webstore.entity.JctbQualityCheckDetail;
+import com.geoway.webstore.entity.JctbQualityCheckOverview;
 import com.geoway.webstore.service.JctbQualityCheckDetailService;
 import com.geoway.webstore.util.IDWorker;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -74,10 +77,28 @@ public class JctbQualityCheckDetailServiceImpl implements JctbQualityCheckDetail
     }
 
     @Override
-    public List<JctbQualityCheckDetailDto> listByTaskName2(String taskName) {
+    public List<JctbQualityCheckDetailDTO> listByTaskName2(String taskName) {
         List<JctbQualityCheckDetail> overviews = jctbQualityCheckDetailMapper.listByTaskName(taskName);
-        List<JctbQualityCheckDetailDto> dtoList = JctbQualityCheckDetailConverter.Instance.domain2dto(overviews);
+        List<JctbQualityCheckDetailDTO> dtoList = JctbQualityCheckDetailConverter.Instance.domain2dto(overviews);
         IntStream.range(0, dtoList.size()).forEach(i -> dtoList.get(i).setIndex(i + 1));
         return dtoList;
     }
+
+    @Override
+    public PageInfo pageByFilter(int page, int rows, JctbQualityCheckDetail entity) {
+        PageHelper.startPage(page, rows);
+        List<JctbQualityCheckDetail> list = jctbQualityCheckDetailMapper.findSelective(entity);
+        PageInfo pageInfo = new PageInfo<>(list);
+
+        return pageInfo;
+    }
+
+    @Override
+    public List<JctbQualityCheckDetail> listByFilter(JctbQualityCheckDetail entity) {
+        List<JctbQualityCheckDetail> list = jctbQualityCheckDetailMapper.findSelective(entity);
+
+        return list;
+    }
+
+
 }

@@ -5,18 +5,22 @@ import lombok.NoArgsConstructor;
 
 /**
  * @Author: Lencho
- * @CreateTime: 2021/9/16 11:23
+ * @CreateTime: 2021/9/16 9:31
  * @Description:
  */
 @Data
 @NoArgsConstructor
-public class JctbQualityCheckFailDto {
+public class JctbUnzipDetailDTO {
 
     private Long id;
 
     private Integer index;
 
     private String taskName;
+
+    private String dataName;
+
+    private String dataPath;
 
     private String provinceCode;
 
@@ -29,12 +33,4 @@ public class JctbQualityCheckFailDto {
     private String countyCode;
 
     private String countyName;
-
-    private String ruleCode;
-
-    private String ruleName;
-
-    private String tbbh;
-
-    private String finalResult;
 }

@@ -181,4 +181,38 @@
         from jctb_quality_check_overview
         where task_name = #{taskName,jdbcType=VARCHAR}
     </select>
+
+    <select id="findSelective" parameterType="com.geoway.webstore.entity.JctbQualityCheckOverview" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from jctb_quality_check_overview
+        where 1=1
+        <if test="taskName != null and taskName != ''">
+            and task_name = '${taskName}'
+        </if>
+        <if test="provinceCode != null and provinceCode != ''">
+            and province_code like '%${provinceCode}%'
+        </if>
+        <if test="provinceName != null and provinceName != ''">
+            and province_name like '%${provinceName}%'
+        </if>
+        <if test="cityCode != null and cityCode != ''">
+            and city_code like '%${cityCode}%'
+        </if>
+        <if test="cityName != null and cityName != ''">
+            and city_name like '%${cityName}%'
+        </if>
+        <if test="countyCode != null and countyCode != ''">
+            and county_code like '%${countyCode}%'
+        </if>
+        <if test="countyName != null and countyName != ''">
+            and county_name like '%${countyName}%'
+        </if>
+        <if test="status != null">
+            and status = ${status}
+        </if>
+        <if test="info != null and info != ''">
+            and info like '%${info}%'
+        </if>
+    </select>
 </mapper>

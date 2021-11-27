@@ -1,6 +1,6 @@
 package com.geoway.webstore.converter;
 
-import com.geoway.webstore.dto.JctbMarkExceptionDto;
+import com.geoway.webstore.dto.JctbMarkExceptionDTO;
 import com.geoway.webstore.entity.JctbMarkException;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -22,7 +22,7 @@ public interface JctbMarkExceptionConverter {
     @Mappings({
             @Mapping(target = "index", ignore = true),
     })
-    JctbMarkExceptionDto domain2dto(JctbMarkException domain);
+    JctbMarkExceptionDTO domain2dto(JctbMarkException domain);
 
-    List<JctbMarkExceptionDto> domain2dto(List<JctbMarkException> domain);
+    List<JctbMarkExceptionDTO> domain2dto(List<JctbMarkException> domain);
 }

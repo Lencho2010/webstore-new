@@ -5,12 +5,12 @@ import lombok.NoArgsConstructor;
 
 /**
  * @Author: Lencho
- * @CreateTime: 2021/9/16 11:22
+ * @CreateTime: 2021/9/16 17:31
  * @Description:
  */
 @Data
 @NoArgsConstructor
-public class JctbQualityCheckDetailDto {
+public class JctbResultCheckDetailDTO {
 
     private Long id;
 
@@ -30,13 +30,11 @@ public class JctbQualityCheckDetailDto {
 
     private String countyName;
 
+    private Integer status;
+
+    private String info;
+
     private String ruleCode;
 
     private String ruleName;
-
-    private Short checkResult;
-
-    private String checkInfo;
-
-    private String finalResult;
 }

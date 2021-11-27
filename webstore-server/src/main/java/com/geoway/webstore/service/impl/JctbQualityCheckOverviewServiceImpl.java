@@ -1,11 +1,16 @@
 package com.geoway.webstore.service.impl;
 
 import com.geoway.webstore.converter.JctbQualityCheckOverviewConverter;
+import com.geoway.webstore.converter.JctbTaskConverter;
 import com.geoway.webstore.dao.JctbQualityCheckOverviewMapper;
-import com.geoway.webstore.dto.JctbQualityCheckOverviewDto;
+import com.geoway.webstore.dto.JctbQualityCheckOverviewDTO;
+import com.geoway.webstore.dto.JctbTaskDTO;
 import com.geoway.webstore.entity.JctbQualityCheckOverview;
+import com.geoway.webstore.entity.JctbTask;
 import com.geoway.webstore.service.JctbQualityCheckOverviewService;
 import com.geoway.webstore.util.IDWorker;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -75,10 +80,28 @@ public class JctbQualityCheckOverviewServiceImpl implements JctbQualityCheckOver
     }
 
     @Override
-    public List<JctbQualityCheckOverviewDto> listByTaskName2(String taskName) {
+    public List<JctbQualityCheckOverviewDTO> listByTaskName2(String taskName) {
         List<JctbQualityCheckOverview> overviews = jctbQualityCheckOverviewMapper.listByTaskName(taskName);
-        List<JctbQualityCheckOverviewDto> dtoList = JctbQualityCheckOverviewConverter.Instance.domain2dto(overviews);
+        List<JctbQualityCheckOverviewDTO> dtoList = JctbQualityCheckOverviewConverter.Instance.domain2dto(overviews);
         IntStream.range(0, dtoList.size()).forEach(i -> dtoList.get(i).setIndex(i + 1));
         return dtoList;
     }
+
+    @Override
+    public PageInfo pageByFilter(int page, int rows, JctbQualityCheckOverview entity) {
+
+        PageHelper.startPage(page, rows);
+        List<JctbQualityCheckOverview> list = jctbQualityCheckOverviewMapper.findSelective(entity);
+        PageInfo pageInfo = new PageInfo<>(list);
+
+        return pageInfo;
+    }
+
+    @Override
+    public List<JctbQualityCheckOverview> listByFilter(JctbQualityCheckOverview entity) {
+        List<JctbQualityCheckOverview> list = jctbQualityCheckOverviewMapper.findSelective(entity);
+        return list;
+    }
+
+
 }

@@ -2,7 +2,7 @@ package com.geoway.webstore.service.impl;
 
 import com.geoway.webstore.converter.JctbUnzipDetailConverter;
 import com.geoway.webstore.dao.JctbUnzipDetailMapper;
-import com.geoway.webstore.dto.JctbUnzipDetailDto;
+import com.geoway.webstore.dto.JctbUnzipDetailDTO;
 import com.geoway.webstore.entity.JctbUnzipDetail;
 import com.geoway.webstore.service.JctbUnzipDetailService;
 import com.geoway.webstore.util.IDWorker;
@@ -74,9 +74,9 @@ public class JctbUnzipDetailServiceImpl implements JctbUnzipDetailService {
     }
 
     @Override
-    public List<JctbUnzipDetailDto> listByTaskName2(String taskName) {
+    public List<JctbUnzipDetailDTO> listByTaskName2(String taskName) {
         List<JctbUnzipDetail> jctbUnzipDetails = jctbUnzipDetailMapper.listByTaskName(taskName);
-        List<JctbUnzipDetailDto> dtoList = JctbUnzipDetailConverter.Instance.domain2dto(jctbUnzipDetails);
+        List<JctbUnzipDetailDTO> dtoList = JctbUnzipDetailConverter.Instance.domain2dto(jctbUnzipDetails);
         IntStream.range(0, dtoList.size()).forEach(i -> dtoList.get(i).setIndex(i + 1));
         return dtoList;
     }

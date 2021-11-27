@@ -1,6 +1,6 @@
 package com.geoway.webstore.service;
 
-import com.geoway.webstore.dto.JctbMarkExceptionDto;
+import com.geoway.webstore.dto.JctbMarkExceptionDTO;
 import com.geoway.webstore.entity.JctbMarkException;
 import org.apache.ibatis.annotations.Param;
 
@@ -63,5 +63,5 @@ public interface JctbMarkExceptionService {
 
     List<JctbMarkException> listByTaskName(String taskName);
 
-    List<JctbMarkExceptionDto> listByTaskName2(String taskName);
+    List<JctbMarkExceptionDTO> listByTaskName2(String taskName);
 }

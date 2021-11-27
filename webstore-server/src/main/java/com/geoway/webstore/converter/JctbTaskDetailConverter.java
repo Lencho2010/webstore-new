@@ -1,6 +1,6 @@
 package com.geoway.webstore.converter;
 
-import com.geoway.webstore.dto.JctbTaskDetailDto;
+import com.geoway.webstore.dto.JctbTaskDetailDTO;
 import com.geoway.webstore.entity.JctbTaskDetail;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -22,7 +22,7 @@ public interface JctbTaskDetailConverter {
     @Mappings({
             @Mapping(target = "consumeTime", expression = "java(com.geoway.webstore.util.ConsumeTimeUtil.calculateTimeDifference(domain.getStartTime(),domain.getEndTime()))")
     })
-    JctbTaskDetailDto domain2dto(JctbTaskDetail domain);
+    JctbTaskDetailDTO domain2dto(JctbTaskDetail domain);
 
-    List<JctbTaskDetailDto> domain2dto(List<JctbTaskDetail> domain);
+    List<JctbTaskDetailDTO> domain2dto(List<JctbTaskDetail> domain);
 }

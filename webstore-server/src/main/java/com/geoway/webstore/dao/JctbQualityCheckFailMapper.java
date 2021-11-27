@@ -1,6 +1,8 @@
 package com.geoway.webstore.dao;
 
+import com.geoway.webstore.entity.JctbQualityCheckDetail;
 import com.geoway.webstore.entity.JctbQualityCheckFail;
+import com.geoway.webstore.entity.JctbQualityCheckOverview;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -25,4 +27,6 @@ public interface JctbQualityCheckFailMapper {
     int deleteByTaskName(String taskName);
 
     List<JctbQualityCheckFail> listByTaskName(String taskName);
+
+    List<JctbQualityCheckFail> findSelective(JctbQualityCheckFail entity);
 }

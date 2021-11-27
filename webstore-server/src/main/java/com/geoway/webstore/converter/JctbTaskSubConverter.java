@@ -1,6 +1,6 @@
 package com.geoway.webstore.converter;
 
-import com.geoway.webstore.dto.JctbTaskSubDto;
+import com.geoway.webstore.dto.JctbTaskSubDTO;
 import com.geoway.webstore.entity.JctbTaskSub;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -22,7 +22,7 @@ public interface JctbTaskSubConverter {
             @Mapping(target = "children", ignore = true),
             @Mapping(target = "consumeTime", expression = "java(com.geoway.webstore.util.ConsumeTimeUtil.calculateTimeDifference(domain.getStartTime(),domain.getEndTime()))")
     })
-    JctbTaskSubDto domain2dto(JctbTaskSub domain);
+    JctbTaskSubDTO domain2dto(JctbTaskSub domain);
 
-    List<JctbTaskSubDto> domain2dto(List<JctbTaskSub> domain);
+    List<JctbTaskSubDTO> domain2dto(List<JctbTaskSub> domain);
 }

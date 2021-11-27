@@ -1,6 +1,6 @@
 package com.geoway.webstore.service;
 
-import com.geoway.webstore.dto.JctbUnzipDetailDto;
+import com.geoway.webstore.dto.JctbUnzipDetailDTO;
 import com.geoway.webstore.entity.JctbUnzipDetail;
 
 import java.util.List;
@@ -29,5 +29,5 @@ public interface JctbUnzipDetailService {
 
     List<JctbUnzipDetail> listByTaskName(String taskName);
 
-    List<JctbUnzipDetailDto> listByTaskName2(String taskName);
+    List<JctbUnzipDetailDTO> listByTaskName2(String taskName);
 }

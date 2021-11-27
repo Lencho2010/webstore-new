@@ -1,7 +1,7 @@
 package com.geoway.webstore.controller;
 
 import com.geoway.webstore.anno.ResponseResult;
-import com.geoway.webstore.dto.JctbTaskSubDto;
+import com.geoway.webstore.dto.JctbTaskSubDTO;
 import com.geoway.webstore.entity.JctbTaskSub;
 import com.geoway.webstore.service.JctbTaskSubService;
 import org.springframework.web.bind.annotation.*;
@@ -43,7 +43,7 @@ public class JctbTaskSubController {
     }
 
     @GetMapping("/list/{taskName}")
-    public List<JctbTaskSubDto> listByTaskName2(@PathVariable("taskName") String taskName) {
+    public List<JctbTaskSubDTO> listByTaskName2(@PathVariable("taskName") String taskName) {
         return jctbTaskSubService.listByTaskName2(taskName);
     }
 

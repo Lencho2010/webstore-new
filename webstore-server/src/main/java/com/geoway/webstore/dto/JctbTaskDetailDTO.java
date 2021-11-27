@@ -6,36 +6,34 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * @Author: Lencho
- * @CreateTime: 2021/9/15 20:37
+ * @CreateTime: 2021/9/15 21:29
  * @Description:
  */
 @Data
 @NoArgsConstructor
-public class JctbTaskSubDto {
-
+public class JctbTaskDetailDTO {
     private Long id;
+
+    private Long parentId;
 
     private String taskName;
 
     private Short status;
 
-    private Short progress;
+    private String log;
 
-    @JsonFormat(pattern= Constant.DATE_FORMAT, timezone = Constant.TIME_ZONE)
+    @JsonFormat(pattern = Constant.DATE_FORMAT, timezone = Constant.TIME_ZONE)
     private Date startTime;
 
-    @JsonFormat(pattern= Constant.DATE_FORMAT, timezone = Constant.TIME_ZONE)
+    @JsonFormat(pattern = Constant.DATE_FORMAT, timezone = Constant.TIME_ZONE)
     private Date endTime;
 
     private Integer stepCode;
 
-    private String stepName;
+    private String stepInfo;
 
     private String consumeTime;
-
-    private List<JctbTaskDetailDto> children;
 }

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class JctbMarkExceptionDto {
+public class JctbMarkExceptionDTO {
 
     @JsonSerialize(using = ToStringSerializer.class)
     private Long id;

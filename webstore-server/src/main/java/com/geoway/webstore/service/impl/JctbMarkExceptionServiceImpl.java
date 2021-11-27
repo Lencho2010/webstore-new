@@ -1,7 +1,7 @@
 package com.geoway.webstore.service.impl;
 
 import com.geoway.webstore.converter.JctbMarkExceptionConverter;
-import com.geoway.webstore.dto.JctbMarkExceptionDto;
+import com.geoway.webstore.dto.JctbMarkExceptionDTO;
 import com.geoway.webstore.entity.JctbMarkException;
 import com.geoway.webstore.dao.JctbMarkExceptionDao;
 import com.geoway.webstore.service.JctbMarkExceptionService;
@@ -47,6 +47,7 @@ public class JctbMarkExceptionServiceImpl implements JctbMarkExceptionService {
     @Override
     public List<JctbMarkException> queryAllByLimit(int offset, int limit) {
         return this.jctbMarkExceptionDao.queryAllByLimit(offset, limit);
+
     }
 
     /**
@@ -107,9 +108,9 @@ public class JctbMarkExceptionServiceImpl implements JctbMarkExceptionService {
     }
 
     @Override
-    public List<JctbMarkExceptionDto> listByTaskName2(String taskName) {
+    public List<JctbMarkExceptionDTO> listByTaskName2(String taskName) {
         List<JctbMarkException> details = jctbMarkExceptionDao.listByTaskName(taskName);
-        List<JctbMarkExceptionDto> dtoList = JctbMarkExceptionConverter.Instance.domain2dto(details);
+        List<JctbMarkExceptionDTO> dtoList = JctbMarkExceptionConverter.Instance.domain2dto(details);
         IntStream.range(0, dtoList.size()).forEach(i -> dtoList.get(i).setIndex(i + 1));
         return dtoList;
     }

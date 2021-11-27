@@ -2,7 +2,7 @@ package com.geoway.webstore.service.impl;
 
 import com.geoway.webstore.converter.JctbTaskConverter;
 import com.geoway.webstore.dao.JctbTaskMapper;
-import com.geoway.webstore.dto.JctbTaskDto;
+import com.geoway.webstore.dto.JctbTaskDTO;
 import com.geoway.webstore.entity.JctbTask;
 import com.geoway.webstore.service.JctbTaskService;
 import com.github.pagehelper.PageHelper;
@@ -45,9 +45,9 @@ public class JctbTaskServiceImpl implements JctbTaskService {
         List<JctbTask> list = jctbTaskMapper.listByTaskNameAndStatus(taskName, status);
         PageInfo pageInfo = new PageInfo<>(list);
         List taskList = pageInfo.getList();
-        List<JctbTaskDto> dtoList = JctbTaskConverter.Instance.domain2dto(taskList);
+        List<JctbTaskDTO> dtoList = JctbTaskConverter.Instance.domain2dto(taskList);
         IntStream.range(0, dtoList.size()).forEach(i -> {
-                    JctbTaskDto dto = dtoList.get(i);
+                    JctbTaskDTO dto = dtoList.get(i);
                     dto.setIndex((page - 1) * rows + 1 + i);
                 }
         );

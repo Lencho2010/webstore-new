@@ -18,4 +18,5 @@ public class TbsysParaConfig {
     private String scanPathKey;
     private String scanPathsKey;
     private String serviceStatusKey;
+    private String reportYearKey;
 }

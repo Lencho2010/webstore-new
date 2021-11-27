@@ -25,4 +25,6 @@ public interface JctbQualityCheckOverviewMapper {
     int deleteByTaskName(String taskName);
 
     List<JctbQualityCheckOverview> listByTaskName(String taskName);
+
+    List<JctbQualityCheckOverview> findSelective(JctbQualityCheckOverview entity);
 }

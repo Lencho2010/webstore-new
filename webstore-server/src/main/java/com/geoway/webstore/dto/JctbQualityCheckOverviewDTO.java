@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class JctbQualityCheckOverviewDto {
+public class JctbQualityCheckOverviewDTO {
 
     private Long id;
 

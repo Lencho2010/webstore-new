@@ -1,6 +1,6 @@
 package com.geoway.webstore.converter;
 
-import com.geoway.webstore.dto.JctbResultCheckDetailDto;
+import com.geoway.webstore.dto.JctbResultCheckDetailDTO;
 import com.geoway.webstore.entity.JctbResultCheckDetail;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -22,7 +22,7 @@ public interface JctbResultCheckDetailConverter {
     @Mappings({
             @Mapping(target = "index", ignore = true),
     })
-    JctbResultCheckDetailDto domain2dto(JctbResultCheckDetail domain);
+    JctbResultCheckDetailDTO domain2dto(JctbResultCheckDetail domain);
 
-    List<JctbResultCheckDetailDto> domain2dto(List<JctbResultCheckDetail> domain);
+    List<JctbResultCheckDetailDTO> domain2dto(List<JctbResultCheckDetail> domain);
 }

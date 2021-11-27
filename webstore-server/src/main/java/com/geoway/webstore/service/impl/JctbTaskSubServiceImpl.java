@@ -4,7 +4,7 @@ import com.geoway.webstore.converter.JctbTaskDetailConverter;
 import com.geoway.webstore.converter.JctbTaskSubConverter;
 import com.geoway.webstore.dao.JctbTaskDetailMapper;
 import com.geoway.webstore.dao.JctbTaskSubMapper;
-import com.geoway.webstore.dto.JctbTaskSubDto;
+import com.geoway.webstore.dto.JctbTaskSubDTO;
 import com.geoway.webstore.entity.JctbTaskDetail;
 import com.geoway.webstore.entity.JctbTaskSub;
 import com.geoway.webstore.service.JctbTaskSubService;
@@ -70,12 +70,12 @@ public class JctbTaskSubServiceImpl implements JctbTaskSubService {
     }
 
     @Override
-    public List<JctbTaskSubDto> listByTaskName2(String taskName) {
+    public List<JctbTaskSubDTO> listByTaskName2(String taskName) {
         List<JctbTaskSub> jctbTaskSubs = jctbTaskSubMapper.listByTaskName(taskName);
 
         List<JctbTaskDetail> jctbTaskDetails = jctbTaskDetailMapper.listByTaskName(taskName);
         //List<JctbTaskDetailDto> taskDetailDtoList = JctbTaskDetailConverter.Instance.domain2dto(jctbTaskDetails);
-        List<JctbTaskSubDto> dtoList = JctbTaskSubConverter.Instance.domain2dto(jctbTaskSubs);
+        List<JctbTaskSubDTO> dtoList = JctbTaskSubConverter.Instance.domain2dto(jctbTaskSubs);
         dtoList.forEach(dto -> {
             List<JctbTaskDetail> collect = jctbTaskDetails.stream().filter(d -> d.getParentId().equals(dto.getId())).collect(Collectors.toList());
             dto.setChildren(JctbTaskDetailConverter.Instance.domain2dto(collect));

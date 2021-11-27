@@ -6,10 +6,8 @@ import com.geoway.webstore.anno.ResponseResult;
 import com.geoway.webstore.entity.ExportWordConfigDetail;
 import com.geoway.webstore.entity.SqlItem;
 import com.geoway.webstore.entity.TransportTemplate;
-import com.geoway.webstore.util.ExportWordUtil;
-import com.geoway.webstore.util.StringUtil;
-import com.geoway.webstore.util.Transport;
-import com.geoway.webstore.util.XmlUtil;
+import com.geoway.webstore.entity.UserEntity;
+import com.geoway.webstore.util.*;
 import freemarker.template.TemplateException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,16 +15,15 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.util.ResourceUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @Author: Lencho
@@ -220,4 +217,41 @@ public class TestController {
         }
     }
 
+    @RequestMapping("exportExcel")
+    public void exportExcel(HttpServletResponse response) throws IOException {
+        UserEntity user1 = UserEntity.builder().id(1L).userName("张三").age(10).birth(new Date()).sex(1).build();
+        UserEntity user2 = UserEntity.builder().id(2L).userName("小李").age(16).birth(new Date()).sex(2).build();
+        UserEntity user3 = UserEntity.builder().id(3L).userName("小王").age(14).birth(new Date()).sex(1).build();
+        List<UserEntity> userList = Stream.of(user1, user2, user3).collect(Collectors.toList());
+
+        //导出操作
+        ExcelUtil.exportExcel(userList, null, "用户", UserEntity.class, "测试用户导出.xlsx", response);
+    }
+
+    @PostMapping("importExcel")
+    public String importExcel(@RequestParam("file") MultipartFile file) {
+        //解析excel
+        List<UserEntity> userList = ExcelUtil.importExcel(file, 0, 1, UserEntity.class);
+        //也可以使用String filePath = "xxx.xls";importExcel(String filePath,Integer titleRows,Integer headerRows, Class<T> pojoClass)导入
+        System.out.println("导入数据一共【" + userList.size() + "】行");
+        System.out.println("导入的数据：" + userList);
+        //TODO 保存数据库
+        return "Success";
+    }
 }
+        /*异常处理：
+        try{
+        EasyExcelUtil.exportExcel(exporDatatList,null,"用户列表",ActiveFissionUserDto.class,"用户列表.xlsx",response);
+        }catch(Exception e){
+        log.error(">>>用户导出Excel异常:",e);
+        exportUserExcelError(response);
+        }
+
+        private void exportUserExcelError(HttpServletResponse response)throws IOException{
+            response.setHeader("content-type","text/html;charset=UTF-8");
+            PrintWriter writer=response.getWriter();
+            writer.print("导出异常");
+            writer.flush();
+            writer.close();
+        }
+        }*/

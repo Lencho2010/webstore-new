@@ -1,6 +1,6 @@
 package com.geoway.webstore.converter;
 
-import com.geoway.webstore.dto.JctbContrastDetailDto;
+import com.geoway.webstore.dto.JctbContrastDetailDTO;
 import com.geoway.webstore.entity.JctbContrastDetail;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -21,7 +21,7 @@ public interface JctbContrastDetailConverter {
     @Mappings({
             @Mapping(target = "index", ignore = true),
     })
-    JctbContrastDetailDto domain2dto(JctbContrastDetail domain);
+    JctbContrastDetailDTO domain2dto(JctbContrastDetail domain);
 
-    List<JctbContrastDetailDto> domain2dto(List<JctbContrastDetail> domain);
+    List<JctbContrastDetailDTO> domain2dto(List<JctbContrastDetail> domain);
 }
