@@ -140,7 +140,7 @@ swagger:
   exclude-path:
 
 logging:
-  level: {root: debug}
+  level: { root: debug }
   config: classpath:log4j2.xml
 
 master:
@@ -187,3 +187,9 @@ template-loader-path: classpath:templates
 report-export-path: D:/test/report
 
 fr-report-export-url: http://localhost:9001
+
+minio:
+  access-key: Lencho
+  secret-key: ddxu2012
+  bucket-name: first
+  url: http://localhost:9000
